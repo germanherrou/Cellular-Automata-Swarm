@@ -59,3 +59,18 @@ stage.add(layer);
 
 // draw the image
 layer.draw();
+
+function next() {
+    transition();
+    var array = getArray();
+    squares.forEach(square => {
+        var value = array[square.index];
+        if (value){
+            square.fill('gray');
+        }
+        else {
+            square.fill('white');
+        }
+    });
+    layer.draw();
+}
