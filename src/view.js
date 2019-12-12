@@ -80,4 +80,5 @@ function changeRule(value) {
     valueString = parseInt(value, 10).toString(2);
     valueString = "00000000".substr(valueString.length) + valueString;
     updateRule(valueString);
+    updateResults(valueString);
 }

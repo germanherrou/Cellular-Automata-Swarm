@@ -10,6 +10,8 @@ var rule = getRule();
 
 var side = 50;
 
+var results = [];
+
 for (let index = 7; index >= 0; index--) {
     var number = parseInt(index, 10).toString(2);
     numberString = "000".substr(number.length) + number;
@@ -43,6 +45,8 @@ for (let index = 7; index >= 0; index--) {
         fill: 'black'
     });
 
+    results.push(resultText);
+
     layerRuleset1d.add(resultText);
 
 
@@ -50,3 +54,11 @@ for (let index = 7; index >= 0; index--) {
 
 stageRuleset1d.add(layerRuleset1d);
 layerRuleset1d.draw();
+
+function updateResults(rule) {
+    for (let index = 0; index < rule.length; index++) {
+        results[index].setAttr('text', rule.charAt(7 - index));
+    }
+
+    layerRuleset1d.draw();
+}
