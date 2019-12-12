@@ -9,6 +9,9 @@ function update(index, value) {
     array[index] = value;
 }
 
+function getRule() {
+    return rule;
+}
 function updateRule(value) {
     rule = value;
 }
