@@ -9,6 +9,10 @@ function update(index, value) {
     array[index] = value;
 }
 
+function updateRule(value) {
+    rule = value;
+}
+
 function transition() {
     var newArray = [];
     var value = 0;
