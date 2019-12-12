@@ -32,8 +32,18 @@ for (let index = 7; index >= 0; index--) {
         });
 
         layerRuleset1d.add(square);
-
     }
+
+    var resultText = new Konva.Text({
+        x: 3 * side + 10,
+        y: 25 + index * (side + 10),
+        text: rule.charAt(index),
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'black'
+    });
+
+    layerRuleset1d.add(resultText);
 
 
 }
