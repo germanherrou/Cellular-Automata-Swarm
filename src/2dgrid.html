@@ -12,6 +12,33 @@
     <button onclick="next()">Next</button>
 
     <div id="container2d"></div>
+        
+
+    <div id="births">
+        <br>Vecinos para que nazca una celda vacía</br>
+        <label><input type="checkbox" onclick="toggle('births', 1)">1</label>
+        <label><input type="checkbox" onclick="toggle('births', 2)">2</label>
+        <label><input type="checkbox" onclick="toggle('births', 3)" checked=true>3</label>
+        <label><input type="checkbox" onclick="toggle('births', 4)">4</label>
+        <label><input type="checkbox" onclick="toggle('births', 5)">5</label>
+        <label><input type="checkbox" onclick="toggle('births', 6)">6</label>
+        <label><input type="checkbox" onclick="toggle('births', 7)">7</label>
+        <label><input type="checkbox" onclick="toggle('births', 8)">8</label>
+    </div>
+
+    <div id="survives">
+        <br>Vecinos para que sobreviva una celda existente</br>
+        <label><input type="checkbox" onclick="toggle('survives', 1)">1</label>
+        <label><input type="checkbox" onclick="toggle('survives', 2)" checked=true>2</label>
+        <label><input type="checkbox" onclick="toggle('survives', 3)" checked=true>3</label>
+        <label><input type="checkbox" onclick="toggle('survives', 4)">4</label>
+        <label><input type="checkbox" onclick="toggle('survives', 5)">5</label>
+        <label><input type="checkbox" onclick="toggle('survives', 6)">6</label>
+        <label><input type="checkbox" onclick="toggle('survives', 7)">7</label>
+        <label><input type="checkbox" onclick="toggle('survives', 8)">8</label>
+    </div>
+
+
 
     <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
     <script src="./2dGrid/model2d.js"></script>

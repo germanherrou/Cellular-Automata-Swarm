@@ -11,6 +11,17 @@ function update(row, column, value) {
     grid[row][column] = value;
 }
 
+function toggle(name, number) {
+    var array = births;
+    if (name == 'survives')
+        array = survives;
+
+    if (array.includes(number))
+        array.splice(array.indexOf(number), 1);
+    else
+        array.push(number);
+}
+
 function transition() {
     var newGrid = [];
     var value;
