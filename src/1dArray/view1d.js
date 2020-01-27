@@ -4,7 +4,6 @@ var stage = new Konva.Stage({
     height: 250
 });
 
-// then create layer
 var layer = new Konva.Layer();
 
 side = 50;
@@ -12,7 +11,7 @@ var array = getArray();
 var squares = [];
 var color = 'white'
 for (let index = 0; index < array.length; index++) {
-    if (array[index] == 1)
+    if (array[index])
         color = 'gray'
     else
         color = 'white'

@@ -8,7 +8,7 @@ function getGrid() {
 }
 
 function update(row, column, value) {
-    grid[row, column] = value;
+    grid[row][column] = value;
 }
 
 function transition() {
