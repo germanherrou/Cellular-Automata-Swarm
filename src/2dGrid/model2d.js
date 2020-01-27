@@ -22,6 +22,10 @@ function toggle(name, number) {
         array.push(number);
 }
 
+function toogleNeighborhood() {
+    mooreNeighborhood = !mooreNeighborhood;
+}
+
 function transition() {
     var newGrid = [];
     var value;

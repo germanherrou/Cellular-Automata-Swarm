@@ -12,13 +12,26 @@
     <button onclick="next()">Next</button>
 
     <div id="container2d"></div>
-        
+
+
+    <form>
+        <div>
+            <br>Tipo de vecindario
+            <br>Moore
+                <label class="switch">
+                    Moore <input type="checkbox" onclick="toogleNeighborhood()">
+                    <span class="slider"></span>
+                </label>
+                Von Neumann
+        </div>
+    </form>
 
     <div id="births">
-        <br>Vecinos para que nazca una celda vacía</br>
+        <br>Vecinos para que nazca una celda vacía
+        <br>
         <label><input type="checkbox" onclick="toggle('births', 1)">1</label>
         <label><input type="checkbox" onclick="toggle('births', 2)">2</label>
-        <label><input type="checkbox" onclick="toggle('births', 3)" checked=true>3</label>
+        <label><input type="checkbox" onclick="toggle('births', 3)" checked>3</label>
         <label><input type="checkbox" onclick="toggle('births', 4)">4</label>
         <label><input type="checkbox" onclick="toggle('births', 5)">5</label>
         <label><input type="checkbox" onclick="toggle('births', 6)">6</label>
@@ -27,10 +40,11 @@
     </div>
 
     <div id="survives">
-        <br>Vecinos para que sobreviva una celda existente</br>
+        <br>Vecinos para que sobreviva una celda existente
+        <br>
         <label><input type="checkbox" onclick="toggle('survives', 1)">1</label>
-        <label><input type="checkbox" onclick="toggle('survives', 2)" checked=true>2</label>
-        <label><input type="checkbox" onclick="toggle('survives', 3)" checked=true>3</label>
+        <label><input type="checkbox" onclick="toggle('survives', 2)" checked>2</label>
+        <label><input type="checkbox" onclick="toggle('survives', 3)" checked>3</label>
         <label><input type="checkbox" onclick="toggle('survives', 4)">4</label>
         <label><input type="checkbox" onclick="toggle('survives', 5)">5</label>
         <label><input type="checkbox" onclick="toggle('survives', 6)">6</label>
@@ -43,6 +57,7 @@
     <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
     <script src="./2dGrid/model2d.js"></script>
     <script src="./2dGrid/view2d.js"></script>
+    <link rel="stylesheet" href="slider.css"> 
 </body>
 
 
