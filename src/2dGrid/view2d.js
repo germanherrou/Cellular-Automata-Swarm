@@ -81,3 +81,20 @@ function next() {
     });
     layer.draw();
 }
+var bigNeighborhood = true;
+function changeNeighborhood() {
+    bigNeighborhood = !bigNeighborhood;
+    var elements = document.getElementsByClassName("bigNeighborhood");
+    for (let element of elements) {
+        if (bigNeighborhood) {
+            element.disabled = false;
+        }
+        else
+        {
+            element.checked = false;
+            element.disabled = true;
+        }
+            
+    }
+    toogleNeighborhood();
+}
