@@ -35,12 +35,10 @@ for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
 
         square.on('click', function (info) {
             value = 0;
-            if (this.fill() == 'gray')
-            {
+            if (this.fill() == 'gray') {
                 this.fill('white');
             }
-            else
-            {
+            else {
                 this.fill('gray');
                 value = 1;
             }
@@ -66,3 +64,20 @@ stage.add(layer);
 
 // draw the image
 layer.draw();
+
+function next() {
+    transition();
+    var grid = getGrid();
+    squares.forEach(square => {
+        var row = (square.attrs.y - 20) / side;
+        var column = square.attrs.x / side;
+        var value = grid[row][column];
+        if (value) {
+            square.fill('gray');
+        }
+        else {
+            square.fill('white');
+        }
+    });
+    layer.draw();
+}

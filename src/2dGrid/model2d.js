@@ -45,27 +45,50 @@ function transition() {
 
 function evolve(row, column) {
     var neighbors = 0;
-    var result = 0;
+    var result = false;
 
     if (mooreNeighborhood)
         neighbors = mooreNeighbors(row, column);
     else
         neighbors = vonNeumannNeighbors(row, column);
 
-    if (grid[row, column])
+    if (grid[row][column])
         result = survives.includes(neighbors);
     else result = births.includes(neighbors);
 
-    return result;
+    if (result)
+        return 1
+    else return 0;
 
 }
 
 function mooreNeighbors(row, column) {
-    return grid[row - 1, column - 1] + grid[row - 1, column] + grid[row - 1, column + 1]
-        + grid[row, column - 1] + grid[row, column + 1]
-        + grid[row + 1, column - 1] + grid[row + 1, column] + grid[row + 1, column + 1];
+    var total = 0;
+    for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
+        for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
+            if ((rowOffset != 0 || columnOffset != 0)
+                && row + rowOffset < grid.length
+                && column + columnOffset < grid[0].length
+                && row + rowOffset >= 0
+                && column + columnOffset >= 0)
+                total += grid[row + rowOffset][column + columnOffset];
+        }
+    }
+    return total;
 }
 
 function vonNeumannNeighbors(row, column) {
-    return grid[row - 1, column] + grid[row, column - 1] + grid[row, column + 1] + grid[row + 1, column];
+    var total = 0;
+    for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
+        for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
+            if (rowOffset != columnOffset
+                && rowOffset != -columnOffset
+                && row + rowOffset < grid.length
+                && column + columnOffset < grid[0].length
+                && row + rowOffset >= 0
+                && column + columnOffset >= 0)
+                total += grid[row + rowOffset][column + columnOffset];
+        }
+    }
+    return total;
 }
