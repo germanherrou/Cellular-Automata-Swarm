@@ -8,8 +8,20 @@
 </head>
 
 <body>
-    <a href="index.html">1ra dimensión</a> 
+    <a href="index.html">1ra dimensión</a>
     <br>
+
+    <form>
+        Columnas
+        <br>
+        <input type="range" name="columns" min="3" max="15" value="4" oninput="changeColumns(this.value)">
+    </form>
+
+    <form>
+        Filas
+        <br>
+        <input type="range" name="rows" min="3" max="15" value="4" oninput="changeRows(this.value)">
+    </form>
 
     <button onclick="next()">Next</button>
 
@@ -61,6 +73,7 @@
     <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
     <script src="./2dGrid/model2d.js"></script>
     <script src="./2dGrid/view2d.js"></script>
+    <script src="./2dGrid/controller2d.js"></script>
     <link rel="stylesheet" href="slider.css">
 </body>
 

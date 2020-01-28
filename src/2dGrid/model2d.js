@@ -11,15 +11,51 @@ function update(row, column, value) {
     grid[row][column] = value;
 }
 
-function toggle(name, number) {
+function addRows(value) {
+    for (let index = 0; index < value; index++) {
+        var newRow = [];
+        grid[0].forEach(element => {
+            newRow.push(0);
+        });
+        grid.push(newRow);
+    }
+}
+
+function addColumns(value) {
+    grid.forEach(row => {
+        for (let index = 0; index < value; index++) {
+            row.push(0);
+        }
+    });
+}
+
+function removeRows(value) {
+    var times = 0;
+    while (grid.length > 0 && times < value) {
+        grid.pop();
+        times++;
+    }
+}
+
+function removeColumns(value) {
+    grid.forEach(row => {
+        var times = 0;
+        while (row.length > 0 && times < value) {
+            row.pop();
+            times++;
+        }
+    });
+}
+
+function toggle(name, value) {
     var array = births;
     if (name == 'survives')
         array = survives;
 
-    if (array.includes(number))
-        array.splice(array.indexOf(number), 1);
+    if (array.includes(value))
+        array.splice(array.indexOf(value), 1);
     else
-        array.push(number);
+        array.push(value);
 }
 
 function toogleNeighborhood() {
