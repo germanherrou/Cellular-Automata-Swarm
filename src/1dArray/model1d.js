@@ -5,6 +5,10 @@ function getArray() {
     return array;
 }
 
+function getSize() {
+    return array.length;
+}
+
 function update(index, value) {
     array[index] = value;
 }
@@ -14,6 +18,18 @@ function getRule() {
 }
 function updateRule(value) {
     rule = value;
+}
+
+function growArray(newSize) {
+   while (array.length < newSize) {
+       array.push(0);
+   }
+}
+
+function shrinkArray(newSize) {
+    while (array.length > newSize) {
+        array.pop();
+    }
 }
 
 function transition() {

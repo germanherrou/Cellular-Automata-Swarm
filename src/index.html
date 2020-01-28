@@ -12,8 +12,14 @@
   <form>
     Seleccione regla a utilizar (Rango 0 a 255)
     <br>
-    <input type="range" name="quantity" min="0" max="255" value="50" oninput="changeRule(this.value)">
+    <input type="range" name="range" min="0" max="255" value="50" oninput="changeRule(this.value)">
     <p id="ruleRange">50</p>
+  </form>
+
+  <form>
+    Seleccione tamaño de arreglo
+    <br>
+    <input type="range" name="size" min="3" max="15" value="5" oninput="resize(this.value)">
   </form>
 
   <button onclick="next()">Next</button>
@@ -25,6 +31,7 @@
   <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
   <script src="./1dArray/model1d.js"></script>
   <script src="./1dArray/view1d.js"></script>
+  <script src="./1dArray/controller1d.js"></script>
   <script src="./1dArray/ruleset1d.js"></script>
 
 </body>
