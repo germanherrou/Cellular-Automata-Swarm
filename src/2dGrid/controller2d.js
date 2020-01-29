@@ -42,7 +42,7 @@ function changeRows(total) {
 }
 
 function changeColumns(total) {
-    var length = getGrid().length;
+    var length = getGrid()[0].length;
     if (length < total)
         addColumns(total - length);
     else
