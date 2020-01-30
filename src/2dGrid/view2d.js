@@ -1,7 +1,7 @@
 var stage = new Konva.Stage({
-    container: 'container2d',   // id of container <div>
-    width: 750,
-    height: 750
+    container: 'container2d', // id of container <div>
+    width: 780,
+    height: 780,
 });
 
 var layer = new Konva.Layer();
@@ -42,12 +42,11 @@ function updateGrid(grid) {
                 strokeWidth: 4
             });
 
-            square.on('click', function (info) {
+            square.on('click', function(info) {
                 value = 0;
                 if (this.fill() == 'gray') {
                     this.fill('white');
-                }
-                else {
+                } else {
                     this.fill('gray');
                     value = 1;
                 }

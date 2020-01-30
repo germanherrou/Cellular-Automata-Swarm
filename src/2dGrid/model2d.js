@@ -1,4 +1,13 @@
-var grid = [[1, 0, 0, 0], [0, 1, 1, 0], [1, 0, 1, 0], [0, 0, 0, 1]];
+var grid = [
+    [1, 0, 0, 0, 1, 0, 0, 1],
+    [0, 1, 1, 0, 0, 1, 0, 0],
+    [1, 0, 1, 0, 0, 0, 0, 1],
+    [0, 0, 0, 1, 0, 0, 1, 0],
+    [1, 0, 1, 1, 1, 0, 0, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 1, 1, 0, 1, 0, 0, 0],
+    [1, 0, 0, 0, 0, 1, 0, 1],
+];
 var births = [3];
 var survives = [2, 3];
 var mooreNeighborhood = true; // Moore 8 vecinos, Von Neumann 4 vecinos
@@ -102,11 +111,11 @@ function mooreNeighbors(row, column) {
     var total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
-            if ((rowOffset != 0 || columnOffset != 0)
-                && row + rowOffset < grid.length
-                && column + columnOffset < grid[0].length
-                && row + rowOffset >= 0
-                && column + columnOffset >= 0)
+            if ((rowOffset != 0 || columnOffset != 0) &&
+                row + rowOffset < grid.length &&
+                column + columnOffset < grid[0].length &&
+                row + rowOffset >= 0 &&
+                column + columnOffset >= 0)
                 total += grid[row + rowOffset][column + columnOffset];
         }
     }
@@ -117,12 +126,12 @@ function vonNeumannNeighbors(row, column) {
     var total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
-            if (rowOffset != columnOffset
-                && rowOffset != -columnOffset
-                && row + rowOffset < grid.length
-                && column + columnOffset < grid[0].length
-                && row + rowOffset >= 0
-                && column + columnOffset >= 0)
+            if (rowOffset != columnOffset &&
+                rowOffset != -columnOffset &&
+                row + rowOffset < grid.length &&
+                column + columnOffset < grid[0].length &&
+                row + rowOffset >= 0 &&
+                column + columnOffset >= 0)
                 total += grid[row + rowOffset][column + columnOffset];
         }
     }

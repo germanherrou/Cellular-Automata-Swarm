@@ -30,74 +30,84 @@
         </ul>
     </nav>
 
-    <br>
+    <div class="">
+        <div class="row">
+            <div id="container2d" class="col-sm">
+            </div>
+            <div id="controlPanel" class="col-sm input-group input-group-lg">
+                <div>
+                    <form>
+                        Columnas
+                        <br>
+                        <input type="range" name="columns" min="3" max="15" value="8" oninput="changeColumns(this.value)">
+                        <br> Filas
+                        <br>
+                        <input type="range" name="rows" min="3" max="15" value="8" oninput="changeRows(this.value)">
+                    </form>
 
-    <form>
-        Columnas
-        <br>
-        <input type="range" name="columns" min="3" max="15" value="4" oninput="changeColumns(this.value)">
-    </form>
+                    <button onclick="next()">Siguiente</button>
+                    <button onclick="start()">Comenzar</button>
+                    <button onclick="stop()">Detener</button>
 
-    <form>
-        Filas
-        <br>
-        <input type="range" name="rows" min="3" max="15" value="4" oninput="changeRows(this.value)">
-    </form>
+                    <form>
+                        <div>
+                            <br>Tipo de vecindario
+                            <br>
+                            <label class="switch">
+                            Moore <input type="checkbox" onclick="changeNeighborhood()">
+                            <span class="slider"></span>
+                        </label> Von Neumann
+                        </div>
+                    </form>
 
-    <button onclick="next()">Next</button>
+                    <div id="births">
+                        <br>Vecinos para que nazca una celda vacía
+                        <br>
+                        <label><input type="checkbox" onclick="toggle('births', 0)">0</label>
+                        <label><input type="checkbox" onclick="toggle('births', 1)">1</label>
+                        <label><input type="checkbox" onclick="toggle('births', 2)">2</label>
+                        <label><input type="checkbox" onclick="toggle('births', 3)" checked>3</label>
+                        <label><input type="checkbox" onclick="toggle('births', 4)">4</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 5)">5</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 6)">6</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 7)">7</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 8)">8</label>
+                    </div>
 
-    <div id="container2d"></div>
+                    <div id="survives">
+                        <br>Vecinos para que sobreviva una celda existente
+                        <br>
+                        <label><input type="checkbox" onclick="toggle('survives', 0)">0</label>
+                        <label><input type="checkbox" onclick="toggle('survives', 1)">1</label>
+                        <label><input type="checkbox" onclick="toggle('survives', 2)" checked>2</label>
+                        <label><input type="checkbox" onclick="toggle('survives', 3)" checked>3</label>
+                        <label><input type="checkbox" onclick="toggle('survives', 4)">4</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 5)">5</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 6)">6</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 7)">7</label>
+                        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 8)">8</label>
+                    </div>
 
-
-    <form>
-        <div>
-            <br>Tipo de vecindario
-            <br>Moore
-            <label class="switch">
-                Moore <input type="checkbox" onclick="changeNeighborhood()">
-                <span class="slider"></span>
-            </label> Von Neumann
+                </div>
+            </div>
         </div>
-    </form>
-
-    <div id="births">
-        <br>Vecinos para que nazca una celda vacía
-        <br>
-        <label><input type="checkbox" onclick="toggle('births', 0)">0</label>
-        <label><input type="checkbox" onclick="toggle('births', 1)">1</label>
-        <label><input type="checkbox" onclick="toggle('births', 2)">2</label>
-        <label><input type="checkbox" onclick="toggle('births', 3)" checked>3</label>
-        <label><input type="checkbox" onclick="toggle('births', 4)">4</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 5)">5</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 6)">6</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 7)">7</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('births', 8)">8</label>
-    </div>
-
-    <div id="survives">
-        <br>Vecinos para que sobreviva una celda existente
-        <br>
-        <label><input type="checkbox" onclick="toggle('survives', 0)">0</label>
-        <label><input type="checkbox" onclick="toggle('survives', 1)">1</label>
-        <label><input type="checkbox" onclick="toggle('survives', 2)" checked>2</label>
-        <label><input type="checkbox" onclick="toggle('survives', 3)" checked>3</label>
-        <label><input type="checkbox" onclick="toggle('survives', 4)">4</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 5)">5</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 6)">6</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 7)">7</label>
-        <label><input class="bigNeighborhood" type="checkbox" onclick="toggle('survives', 8)">8</label>
-    </div>
 
 
 
-    <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
-    <script src="./2dGrid/model2d.js"></script>
-    <script src="./2dGrid/view2d.js"></script>
-    <script src="./2dGrid/controller2d.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+
+
+
+
+
+        <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
+        <script src="./2dGrid/model2d.js"></script>
+        <script src="./2dGrid/view2d.js"></script>
+        <script src="./2dGrid/controller2d.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
 
 
 </body>
