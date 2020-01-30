@@ -5,10 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cellular Automata Swarm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-    <a href="index.html">1ra dimensión</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand " href="index.html ">Autómatas Celulares</a>
+        <ul class="navbar-nav ">
+            <li class="nav-item ">
+                <a class="nav-link " href="1darray.html">Modelo 1 Dimensión</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="2dgrid.html">Modelo 2 Dimensiones</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="">Modelo Enjambres</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="">Más Información</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="">Acerca De</a>
+            </li>
+        </ul>
+    </nav>
+
     <br>
 
     <form>
@@ -35,8 +56,7 @@
             <label class="switch">
                 Moore <input type="checkbox" onclick="changeNeighborhood()">
                 <span class="slider"></span>
-            </label>
-            Von Neumann
+            </label> Von Neumann
         </div>
     </form>
 
@@ -74,7 +94,12 @@
     <script src="./2dGrid/model2d.js"></script>
     <script src="./2dGrid/view2d.js"></script>
     <script src="./2dGrid/controller2d.js"></script>
-    <link rel="stylesheet" href="slider.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+
+
 </body>
 
 
