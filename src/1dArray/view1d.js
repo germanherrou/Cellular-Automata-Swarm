@@ -39,15 +39,18 @@ function updateImage(array) {
         });
 
         square.on('click', function(info) {
-            value = 0;
-            if (this.fill() == 'gray') {
-                this.fill('white');
-            } else {
-                this.fill('gray');
-                value = 1;
+            if (!isRunning()) {
+                value = 0;
+                if (this.fill() == 'gray') {
+                    this.fill('white');
+                } else {
+                    this.fill('gray');
+                    value = 1;
+                }
+                layer.draw();
+                update(this.index, value);
             }
-            layer.draw();
-            update(this.index, value);
+
         })
 
         squares.push(square);
@@ -65,4 +68,11 @@ function updateImage(array) {
 
     // draw the image
     layer.draw();
+}
+
+function disableBars(state) {
+    var elements = document.getElementsByClassName("settings-bar");
+    for (let element of elements) {
+        element.disabled = state;
+    }
 }

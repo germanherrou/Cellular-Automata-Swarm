@@ -42,18 +42,18 @@
                     <form>
                         Seleccione regla a utilizar (Rango 0 a 255)
                         <br>
-                        <input type="range" class="form-control-range" name="range" min="0" max="255" value="50" oninput="changeRule(this.value)">
+                        <input type="range" class="form-control-range settings-bar" name="range" min="0" max="255" value="50" oninput="changeRule(this.value)">
                         <br>
                         <p id="ruleRange">50</p>
                         Seleccione tamaño de arreglo
 
-                        <input type="range" class="form-control-range" name="size" min="3" max="15" value="10" oninput="resize(this.value)">
+                        <input type="range" class="form-control-range settings-bar" name="size" min="3" max="15" value="10" oninput="resize(this.value)">
                     </form>
                 </div>
                 <div>
                     <button onclick="next()">Siguiente</button>
-                    <button>Comenzar</button>
-                    <button>Detener</button>
+                    <button onclick="start()">Comenzar</button>
+                    <button onclick="stop()">Detener</button>
                 </div>
             </div>
         </div>

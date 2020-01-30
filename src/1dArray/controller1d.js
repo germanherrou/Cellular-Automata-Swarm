@@ -1,3 +1,25 @@
+var timer;
+var running = false;
+
+function start() {
+    if (!running) {
+        disableBars(true);
+        running = true;
+        timer = setInterval(next, 1000);
+    }
+
+}
+
+function stop() {
+    clearInterval(timer);
+    running = false;
+    disableBars(false);
+}
+
+function isRunning() {
+    return running;
+}
+
 function next() {
     transition();
     var array = getArray();
