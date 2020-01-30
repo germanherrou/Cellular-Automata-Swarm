@@ -39,12 +39,13 @@
                     <form>
                         Columnas
                         <br>
-                        <input type="range" name="columns" min="3" max="15" value="8" oninput="changeColumns(this.value)">
+                        <input type="range" class="form-control-range settings-bar" name="columns" min="3" max="15" value="8" oninput="changeColumns(this.value)">
                         <br> Filas
                         <br>
-                        <input type="range" name="rows" min="3" max="15" value="8" oninput="changeRows(this.value)">
+                        <input type="range" class="form-control-range settings-bar" name="rows" min="3" max="15" value="8" oninput="changeRows(this.value)">
                     </form>
 
+                    <p id=simulacion>Simulación detenida</p>
                     <button onclick="next()">Siguiente</button>
                     <button onclick="start()">Comenzar</button>
                     <button onclick="stop()">Detener</button>
@@ -110,6 +111,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
 
 
+        <script src="./common/view.js"></script>
+        <script src="./common/controller.js"></script>
+
+        <link rel="stylesheet" href="canvas.css">
 </body>
 
 
