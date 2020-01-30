@@ -33,6 +33,15 @@ function shrinkArray(newSize) {
     }
 }
 
+function randomConfiguration() {
+    var newArray = [];
+    for (let index = 0; index < array.length; index++) {
+        var number = Math.round(Math.random());
+        newArray.push(number);
+    }
+    array = newArray;
+}
+
 function transition() {
     var newArray = [];
     var value = 0;

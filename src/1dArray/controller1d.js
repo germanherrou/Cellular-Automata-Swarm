@@ -1,7 +1,11 @@
 function next() {
     transition();
-    var array = getArray();
-    updateImage(array);
+    updateImage(getArray());
+}
+
+function setRandom() {
+    randomConfiguration();
+    updateImage(getArray());
 }
 
 function changeRule(value) {
