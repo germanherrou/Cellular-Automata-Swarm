@@ -38,7 +38,7 @@ function updateImage(array) {
             strokeWidth: 4
         });
 
-        square.on('click', function(info) {
+        square.on('click tap', function(info) {
             if (!isRunning()) {
                 value = 0;
                 if (this.fill() == 'gray') {
