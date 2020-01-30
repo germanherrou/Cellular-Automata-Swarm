@@ -1,7 +1,8 @@
 var stage = new Konva.Stage({
-    container: 'container1d',   // id of container <div>
-    width: 800,
-    height: 250
+    container: 'container1d', // id of container <div>
+    width: 760,
+    height: 100,
+
 });
 
 var layer = new Konva.Layer();
@@ -37,12 +38,11 @@ function updateImage(array) {
             strokeWidth: 4
         });
 
-        square.on('click', function (info) {
+        square.on('click', function(info) {
             value = 0;
             if (this.fill() == 'gray') {
                 this.fill('white');
-            }
-            else {
+            } else {
                 this.fill('gray');
                 value = 1;
             }

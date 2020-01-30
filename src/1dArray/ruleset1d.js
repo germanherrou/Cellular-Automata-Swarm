@@ -1,7 +1,7 @@
 var stageRuleset1d = new Konva.Stage({
-    container: 'ruleset1d',   // id of container <div>
-    width: 1500,
-    height: 1500
+    container: 'ruleset1d', // id of container <div>
+    width: 500,
+    height: 500
 });
 
 var layerRuleset1d = new Konva.Layer();

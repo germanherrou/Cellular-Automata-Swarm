@@ -1,4 +1,4 @@
-var array = [1, 1, 0, 1, 1];
+var array = [1, 1, 0, 1, 1, 0, 0, 1, 0, 0];
 var rule = "00110010";
 
 function getArray() {
@@ -16,14 +16,15 @@ function update(index, value) {
 function getRule() {
     return rule;
 }
+
 function updateRule(value) {
     rule = value;
 }
 
 function growArray(newSize) {
-   while (array.length < newSize) {
-       array.push(0);
-   }
+    while (array.length < newSize) {
+        array.push(0);
+    }
 }
 
 function shrinkArray(newSize) {
