@@ -6,3 +6,8 @@
 #container2d {
     padding-left: 0;
 }
+
+#simulacion {
+    font-weight: bold;
+    color: red;
+}
