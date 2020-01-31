@@ -19,7 +19,7 @@ function updateImage(grid) {
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
             const element = grid[rowIndex][columnIndex];
 
-            var info = "⚪ " + element.tribe + "" + "🍗 " + element.food + "\n" + "🗡️ " + element.war + "" + "🕌 " + element.culture;
+            var info = "⚪ " + element.tribe + "" + "🍗 " + element.food + "\n" + "🗡️ " + element.war + "" + "🗿 " + element.culture;
 
             var square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
