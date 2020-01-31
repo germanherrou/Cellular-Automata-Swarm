@@ -48,6 +48,21 @@ function updateImage(grid) {
         }
 
     }
+
+    // add the shape to the layer
+    squares.forEach(square => {
+        layer.add(square);
+    });
+
+    texts.forEach(text => {
+        layer.add(text);
+    });
+
+    // add the layer to the stage
+    stage.add(layer);
+
+    // draw the image
+    layer.draw();
 }
 
 var stage = new Konva.Stage({
@@ -63,18 +78,3 @@ var grid = getGrid();
 
 
 updateImage(grid);
-
-// add the shape to the layer
-squares.forEach(square => {
-    layer.add(square);
-});
-
-texts.forEach(text => {
-    layer.add(text);
-});
-
-// add the layer to the stage
-stage.add(layer);
-
-// draw the image
-layer.draw();

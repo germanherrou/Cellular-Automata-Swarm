@@ -1,4 +1,4 @@
-var size = 4;
+var size = 5;
 var grid = [];
 for (let index = 0; index < size; index++) {
     var row = [];
