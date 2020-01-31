@@ -1,20 +1,25 @@
+var squares = [];
+var texts = [];
+side = 100;
+
+
 function updateImage(grid) {
     squares.forEach(square => {
         square.remove();
     });
     squares = [];
 
-    var color = 'white';
+    texts.forEach(text => {
+        text.remove();
+    });
+    texts = [];
 
     for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         const row = grid[rowIndex];
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
             const element = grid[rowIndex][columnIndex];
 
-            if (element)
-                color = 'gray'
-            else
-                color = 'white'
+            var info = "⚪ " + element.tribe + "" + "🍗 " + element.food + "\n" + "🗡️ " + element.war + "" + "🕌 " + element.culture;
 
             var square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
@@ -22,53 +27,50 @@ function updateImage(grid) {
                 y: 20 + rowIndex * side,
                 width: side,
                 height: side,
-                fill: color,
+                fill: 'white',
                 stroke: 'black',
                 strokeWidth: 4
             });
 
-            square.on('click', function (info) {
-                value = 0;
-                if (this.fill() == 'gray') {
-                    this.fill('white');
-                } else {
-                    this.fill('gray');
-                    value = 1;
-                }
-                layer.draw();
-                var row = (this.attrs.y - 20) / side;
-                var column = this.attrs.x / side;
-                update(row, column, value);
-            })
+            var text = new Konva.Text({
+                x: 5 + columnIndex * side,
+                y: 45 + rowIndex * side,
+                text: info,
+                fontSize: 25,
+                fontFamily: 'Calibri',
+                fill: 'black'
+            });
+
 
             squares.push(square);
+            texts.push(text);
 
         }
 
     }
 }
 
-
 var stage = new Konva.Stage({
-    container: 'container2d', // id of container <div>
+    container: 'container-swarm', // id of container <div>
     width: 780,
     height: 780,
 });
 
 var layer = new Konva.Layer();
 
-side = 50;
 
 var grid = getGrid();
-var squares = [];
+
 
 updateImage(grid);
-
-
 
 // add the shape to the layer
 squares.forEach(square => {
     layer.add(square);
+});
+
+texts.forEach(text => {
+    layer.add(text);
 });
 
 // add the layer to the stage

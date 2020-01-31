@@ -9,3 +9,7 @@ for (let index = 0; index < size; index++) {
     }
     grid.push(row);
 }
+
+function getGrid() {
+    return grid;
+}
