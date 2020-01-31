@@ -1,4 +1,4 @@
-var size = 4;
+var size = 14;
 var grid = [];
 var foodNeeded = 3;
 

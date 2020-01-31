@@ -1,6 +1,27 @@
 var squares = [];
 var texts = [];
-side = 100;
+side = 70;
+
+function getColor(tribe) {
+    switch (tribe) {
+        case 1:
+            return 'blue';
+            break;
+        case 2:
+            return 'red';
+            break;
+        case 3:
+            return 'yellow';
+            break;
+        case 4:
+            return 'green';
+            break;
+
+        default:
+            return 'white';
+            break;
+    }
+}
 
 
 function updateImage(grid) {
@@ -19,7 +40,9 @@ function updateImage(grid) {
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
             const element = grid[rowIndex][columnIndex];
 
-            var info = "⚪ " + element.tribe + "" + "🍗 " + element.food + "\n" + "🗡️ " + element.war + "" + "🗿 " + element.culture;
+            var color = getColor(element.tribe);
+
+            var info = "🍗 " + element.food + "\n" + "🗡️ " + element.war + "\n" + "🗿 " + element.culture;
 
             var square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
@@ -27,7 +50,7 @@ function updateImage(grid) {
                 y: 20 + rowIndex * side,
                 width: side,
                 height: side,
-                fill: 'white',
+                fill: color,
                 stroke: 'black',
                 strokeWidth: 4
             });
@@ -40,15 +63,15 @@ function updateImage(grid) {
 
             var text = new Konva.Text({
                 x: 5 + columnIndex * side,
-                y: 45 + rowIndex * side,
+                y: 40 + rowIndex * side,
                 text: info,
-                fontSize: 25,
+                fontSize: 16,
                 fontFamily: 'Calibri',
                 fill: 'black'
             });
 
             text.on('click tap', function (info) {
-                var row = (this.attrs.y - 45) / side;
+                var row = (this.attrs.y - 40) / side;
                 var column = (this.attrs.x - 5) / side;
                 setInfoChangeMenu(row, column);
             })
