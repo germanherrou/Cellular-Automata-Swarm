@@ -1,8 +1,3 @@
-function next() {
-    transition();
-    updateImage(getGrid());
-}
-
 var bigNeighborhood = true;
 function changeNeighborhood() {
     bigNeighborhood = !bigNeighborhood;
