@@ -2,6 +2,10 @@ function getGrid() {
     return grid;
 }
 
+function update(row, column, value) {
+    grid[row][column] = value;
+}
+
 function transition() {
     var newGrid = [];
     var value;

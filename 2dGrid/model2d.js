@@ -12,9 +12,6 @@ var births = [3];
 var survives = [2, 3];
 var mooreNeighborhood = true; // Moore 8 vecinos, Von Neumann 4 vecinos
 
-function update(row, column, value) {
-    grid[row][column] = value;
-}
 
 function addRows(value) {
     for (let index = 0; index < value; index++) {

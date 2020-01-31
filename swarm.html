@@ -46,16 +46,17 @@
         <button onclick="stop()">Detener</button>
       </div>
       <div class="col-sm">
-        <p id="current-cell">Celda seleccionada: Ninguna</p>
-        Tribu: <input type="number" name="tribe" value="0" min="0" max="4">
+        <p>Celda seleccionada</p>
+        <p  id="current-cell">-Ninguna-</p>
+        Tribu: <input type="number" id="tribe-input" value="0" min="0" max="4">
         <br>
-        Comida: <input type="number" name="food" value="0" min="0" max="4">
+        Comida: <input type="number" id="food-input" value="0" min="0" max="4">
         <br>
-        Guerra: <input type="number" name="war" value="0" min="0" max="4">
+        Guerra: <input type="number" id="war-input" value="0" min="0" max="4">
         <br>
-        Cultura: <input type="number" name="culture" value="0" min="0" max="4">
+        Cultura: <input type="number" id="culture-input" value="0" min="0" max="4">
         <br>
-        <button onclick="" disabled>Modificar</button>
+        <button id="swarm-cell-button" onclick="setCellValues()" disabled>Modificar</button>
       </div>
     </div>
   </div>
@@ -76,9 +77,11 @@
   <script src="./swarm/swarmCell.js"></script>
   <script src="./swarm/modelSwarm.js"></script>
   <script src="./common/modelGrid.js"></script>
+  <script src="./swarm/konvaSwarm.js"></script>
   <script src="./common/view.js"></script>
   <script src="./swarm/viewSwarm.js"></script>
   <script src="./common/controller.js"></script>
+  <script src="./swarm/controllerSwarm.js"></script>
 </body>
 
 </html>
