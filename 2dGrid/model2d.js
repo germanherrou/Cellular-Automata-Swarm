@@ -107,6 +107,19 @@ function evolve(row, column) {
 
 }
 
+function randomConfiguration() {
+    var newGrid = [];
+    grid.forEach(row => {
+        var newRow = [];
+        row.forEach(element => {
+            var number = Math.round(Math.random());
+            newRow.push(number);
+        });
+        newGrid.push(newRow);
+    });
+    grid = newGrid;
+}
+
 function mooreNeighbors(row, column) {
     var total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
