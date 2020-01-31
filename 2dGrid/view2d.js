@@ -46,6 +46,17 @@ function updateImage(grid) {
         }
 
     }
+
+    // add the shape to the layer
+    squares.forEach(square => {
+        layer.add(square);
+    });
+
+    // add the layer to the stage
+    stage.add(layer);
+
+    // draw the image
+    layer.draw();
 }
 
 
@@ -63,16 +74,3 @@ var grid = getGrid();
 var squares = [];
 
 updateImage(grid);
-
-
-
-// add the shape to the layer
-squares.forEach(square => {
-    layer.add(square);
-});
-
-// add the layer to the stage
-stage.add(layer);
-
-// draw the image
-layer.draw();
