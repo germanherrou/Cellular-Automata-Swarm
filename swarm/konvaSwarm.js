@@ -84,7 +84,7 @@ var stage = new Konva.Stage({
 });
 
 var layer = new Konva.Layer();
-
+randomConfiguration();
 
 var grid = getGrid();
 

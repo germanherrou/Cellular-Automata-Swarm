@@ -2,17 +2,21 @@ var size = 4;
 var grid = [];
 var foodNeeded = 3;
 
-for (let index = 0; index < size; index++) {
-    var row = [];
+function randomConfiguration() {
+    var newGrid = [];
     for (let index = 0; index < size; index++) {
-        var tribe = Math.floor(Math.random() * 5);
-        var food = Math.floor(Math.random() * 4);
-        var war = Math.floor(Math.random() * 4);
-        var culture = Math.floor(Math.random() * 4);
-        var cell = new SwarmCell(tribe, food, war, culture);
-        row.push(cell);
+        var row = [];
+        for (let index = 0; index < size; index++) {
+            var tribe = Math.floor(Math.random() * 5);
+            var food = Math.floor(Math.random() * 4);
+            var war = Math.floor(Math.random() * 4);
+            var culture = Math.floor(Math.random() * 4);
+            var cell = new SwarmCell(tribe, food, war, culture);
+            row.push(cell);
+        }
+        newGrid.push(row);
     }
-    grid.push(row);
+    grid = newGrid;
 }
 
 function evolve(row, column) {
