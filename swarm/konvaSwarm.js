@@ -26,12 +26,12 @@ function getColor(tribe) {
 
 function updateImage(grid) {
     squares.forEach(square => {
-        square.remove();
+        square.destroy();
     });
     squares = [];
 
     texts.forEach(text => {
-        text.remove();
+        text.destroy();
     });
     texts = [];
 
