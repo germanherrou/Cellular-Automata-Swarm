@@ -33,12 +33,33 @@
     </ul>
   </nav>
 
-  <div id="container-swarm"></div>
+  <div></div>
 
-  <button class="settings-configuration" onclick="setRandom()">Conf. Aleatoria</button>
-  <button class="settings-configuration" onclick="next()">Siguiente</button>
-  <button onclick="start()">Comenzar</button>
-  <button onclick="stop()">Detener</button>
+  <div class="">
+    <div class="row">
+      <div id="container-swarm" class="col-sm">
+      </div>
+      <div class="col-sm">
+        <button class="settings-configuration" onclick="setRandom()">Conf. Aleatoria</button>
+        <button class="settings-configuration" onclick="next()">Siguiente</button>
+        <button onclick="start()">Comenzar</button>
+        <button onclick="stop()">Detener</button>
+      </div>
+      <div class="col-sm">
+        <p id="current-cell">Celda seleccionada: Ninguna</p>
+        Tribu: <input type="number" name="tribe" value="0" min="0" max="4">
+        <br>
+        Comida: <input type="number" name="food" value="0" min="0" max="4">
+        <br>
+        Guerra: <input type="number" name="war" value="0" min="0" max="4">
+        <br>
+        Cultura: <input type="number" name="culture" value="0" min="0" max="4">
+        <br>
+        <button onclick="" disabled>Modificar</button>
+      </div>
+    </div>
+  </div>
+
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

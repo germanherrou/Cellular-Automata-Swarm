@@ -67,8 +67,8 @@ function updateImage(grid) {
 
 var stage = new Konva.Stage({
     container: 'container-swarm', // id of container <div>
-    width: 780,
-    height: 780,
+    width: 1000,
+    height: 1000,
 });
 
 var layer = new Konva.Layer();
