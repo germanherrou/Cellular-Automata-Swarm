@@ -25,3 +25,13 @@ function stop() {
 function isRunning() {
     return running;
 }
+
+function next() {
+    transition();
+    updateImage(getGrid());
+}
+
+function setRandom() {
+    randomConfiguration();
+    updateImage(getGrid());
+}

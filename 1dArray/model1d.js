@@ -1,7 +1,7 @@
 var array = [1, 1, 0, 1, 1, 0, 0, 1, 0, 0];
 var rule = "00110010";
 
-function getArray() {
+function getGrid() {
     return array;
 }
 

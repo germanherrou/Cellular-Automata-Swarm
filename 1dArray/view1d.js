@@ -8,7 +8,7 @@ var stage = new Konva.Stage({
 var layer = new Konva.Layer();
 
 side = 50;
-var array = getArray();
+var array = getGrid();
 var squares = [];
 updateImage(array);
 

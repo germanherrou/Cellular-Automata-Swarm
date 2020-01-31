@@ -1,12 +1,3 @@
-function next() {
-    transition();
-    updateImage(getArray());
-}
-
-function setRandom() {
-    randomConfiguration();
-    updateImage(getArray());
-}
 
 function changeRule(value) {
     if (value >= 0 && value < 256)
@@ -23,6 +14,6 @@ function resize(newSize) {
         growArray(newSize);
     else
         shrinkArray(newSize);
-    var array = getArray();
+    var array = getGrid();
     updateImage(array);
 }

@@ -11,9 +11,9 @@ side = 50;
 var grid = getGrid();
 var squares = [];
 
-updateGrid(grid);
+updateImage(grid);
 
-function updateGrid(grid) {
+function updateImage(grid) {
     squares.forEach(square => {
         square.remove();
     });
