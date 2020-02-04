@@ -1,22 +1,22 @@
-var stage = new Konva.Stage({
-    container: 'container1d', // id of container <div>
-    width: 760,
-    height: 100,
-
-});
-
-var layer = new Konva.Layer();
-
-side = 50;
 var array = getGrid();
+var layer = new Konva.Layer();
+var defaultSide = 50;
+var side = defaultSide;
 var squares = [];
-updateImage(array);
+var offsetWidth = 15;
 
 function updateImage(array) {
     squares.forEach(square => {
         square.remove();
     });
     squares = [];
+
+    if (array.length * defaultSide - offsetWidth > stage.width()){
+        side = Math.floor((stage.width() - offsetWidth) / array.length);
+    }
+    else {
+        side = defaultSide;
+    }
 
     var color = 'white'
     for (let index = 0; index < array.length; index++) {
@@ -69,3 +69,24 @@ function updateImage(array) {
     // draw the image
     layer.draw();
 }
+
+function fitStageInConainer() {
+    var container = document.getElementById("1d-stage-container");
+    var containerWidth = container.offsetWidth;
+    stage.width(containerWidth);
+    updateImage(array);
+    
+}
+
+var stage = new Konva.Stage({
+    container: 'container1d', // id of container <div>
+    width: 760,
+    height: 100,
+
+});
+
+
+
+
+window.addEventListener('resize', fitStageInConainer);
+fitStageInConainer();
