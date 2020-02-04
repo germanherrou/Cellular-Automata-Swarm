@@ -1,10 +1,32 @@
+var layer = new Konva.Layer();
+var defaultSide = 50;
+var side = defaultSide;
+var grid = getGrid();
+var squares = [];
+var offsetWidth = 30;
+var maxWidth = 780;
+
 function updateImage(grid) {
     squares.forEach(square => {
         square.remove();
     });
     squares = [];
 
+    if (grid[0].length * defaultSide - offsetWidth >= stage.width()){
+        side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
+    }
+    else {
+        side = defaultSide;
+    }
+
     var color = 'white';
+
+    if (grid[0].length * defaultSide - offsetWidth >= stage.width()){
+        side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
+    }
+    else {
+        side = defaultSide;
+    }
 
     for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         const row = grid[rowIndex];
@@ -59,18 +81,25 @@ function updateImage(grid) {
     layer.draw();
 }
 
+function fitStageInConainer() {
+    var container = document.getElementById("stage-container");
+    var containerWidth = container.offsetWidth - offsetWidth;
+    if (containerWidth < maxWidth) {
+        stage.width(containerWidth);
+    }
+    else {
+        stage.width(maxWidth);
+    }
+    
+    updateImage(grid); 
+}
+
 
 var stage = new Konva.Stage({
     container: 'container2d', // id of container <div>
-    width: 780,
+    width: maxWidth,
     height: 780,
 });
 
-var layer = new Konva.Layer();
-
-side = 50;
-
-var grid = getGrid();
-var squares = [];
-
-updateImage(grid);
+window.addEventListener('resize', fitStageInConainer);
+fitStageInConainer();

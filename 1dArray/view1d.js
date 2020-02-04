@@ -18,7 +18,7 @@ function updateImage(array) {
         side = defaultSide;
     }
 
-    var color = 'white'
+    var color = 'white';
     for (let index = 0; index < array.length; index++) {
         if (array[index])
             color = 'gray'
@@ -71,11 +71,10 @@ function updateImage(array) {
 }
 
 function fitStageInConainer() {
-    var container = document.getElementById("1d-stage-container");
+    var container = document.getElementById("stage-container");
     var containerWidth = container.offsetWidth - offsetWidth;
     stage.width(containerWidth);
-    updateImage(array);
-    
+    updateImage(array); 
 }
 
 var stage = new Konva.Stage({

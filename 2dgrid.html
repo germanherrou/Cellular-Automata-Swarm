@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cellular Automata Swarm</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -32,62 +33,84 @@
 
     <div class="">
         <div class="row">
-            <div id="container2d" class="col-sm">
+            <div id="stage-container" class="col-sm">
+                <div id="container2d">
+                </div>
             </div>
+
             <div id="controlPanel" class="col-sm input-group input-group-lg">
                 <div>
-                    <form>
+                    <form class="input-group input-group-lg">
                         Columnas
                         <br>
-                        <input type="range" class="form-control-range settings-configuration" name="columns" min="3" max="15" value="8" oninput="changeColumns(this.value)">
+                        <input type="range" class="form-control-range settings-configuration" name="columns" min="3"
+                            max="15" value="8" oninput="changeColumns(this.value)">
                         <br> Filas
                         <br>
-                        <input type="range" class="form-control-range settings-configuration" name="rows" min="3" max="15" value="8" oninput="changeRows(this.value)">
+                        <input type="range" class="form-control-range settings-configuration" name="rows" min="3"
+                            max="15" value="8" oninput="changeRows(this.value)">
                     </form>
-
                     <p id=simulacion>Simulación detenida</p>
-                    <button class="settings-configuration" onclick="setRandom()">Conf. Aleatoria</button>
-                    <button class="settings-configuration" onclick="next()">Siguiente</button>
-                    <button onclick="start()">Comenzar</button>
-                    <button onclick="stop()">Detener</button>
+                    <div class="input-group input-group-lg">
+                        <button class="settings-configuration" onclick="setRandom()">Conf. Aleatoria</button>
+                        <button class="settings-configuration" onclick="next()">Siguiente</button>
+                        <button onclick="start()">Comenzar</button>
+                        <button onclick="stop()">Detener</button>
+                    </div>
 
-                    <form>
+                    <form class="input-group input-group-lg">
                         <div>
                             <br>Tipo de vecindario
                             <br>Moore
                             <label class="switch">
-                            <input type="checkbox" onclick="changeNeighborhood()">
-                            <span class="slider"></span>
+                                <input type="checkbox" onclick="changeNeighborhood()">
+                                <span class="slider"></span>
                             </label>Von Neumann
                         </div>
                     </form>
 
-                    <div id="births">
-                        <br>Vecinos para que nazca una celda vacía
-                        <br>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 0)">0</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 1)">1</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 2)">2</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 3)" checked>3</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 4)">4</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('births', 5)">5</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('births', 6)">6</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('births', 7)">7</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('births', 8)">8</label>
+                    <p>Vecinos para que nazca una celda vacía</p>
+                    <div id="births" class="input-group input-group-lg">
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 0)">0</label>
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 1)">1</label>
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 2)">2</label>
+                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 3)"
+                                checked>3</label>
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 4)">4</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('births', 5)">5</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('births', 6)">6</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('births', 7)">7</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('births', 8)">8</label>
                     </div>
 
-                    <div id="survives">
-                        <br>Vecinos para que sobreviva una celda existente
-                        <br>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 0)">0</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 1)">1</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 2)" checked>2</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 3)" checked>3</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 4)">4</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('survives', 5)">5</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('survives', 6)">6</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('survives', 7)">7</label>
-                        <label><input class="bigNeighborhood settings-configuration" type="checkbox" onclick="toggle('survives', 8)">8</label>
+                    <p>Vecinos para que sobreviva una celda existente</p>
+                    <div id="survives" class="input-group input-group-lg">
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survives', 0)">0</label>
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survives', 1)">1</label>
+                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 2)"
+                                checked>2</label>
+                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survives', 3)"
+                                checked>3</label>
+                        <label><input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survives', 4)">4</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('survives', 5)">5</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('survives', 6)">6</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('survives', 7)">7</label>
+                        <label><input class="bigNeighborhood settings-configuration" type="checkbox"
+                                onclick="toggle('survives', 8)">8</label>
                     </div>
 
                 </div>
@@ -95,9 +118,15 @@
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n "
+            crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+            crossorigin="anonymous "></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
+            crossorigin="anonymous "></script>
 
 
         <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
@@ -105,11 +134,12 @@
         <script src="./common/modelGrid.js"></script>
         <script src="./2dGrid/view2d.js"></script>
         <script src="./2dGrid/controller2d.js"></script>
-        
+
         <script src="./common/view.js"></script>
         <script src="./common/controller.js"></script>
 
         <link rel="stylesheet" href="canvas.css">
         <link rel="stylesheet" href="slider.css">
 </body>
+
 </html>
