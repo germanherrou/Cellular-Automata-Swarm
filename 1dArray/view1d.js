@@ -11,7 +11,7 @@ function updateImage(array) {
     });
     squares = [];
 
-    if (array.length * defaultSide - offsetWidth > stage.width()){
+    if (array.length * defaultSide - offsetWidth >= stage.width()){
         side = Math.floor((stage.width() - offsetWidth) / array.length);
     }
     else {
