@@ -1,6 +1,6 @@
 var squares = [];
 var texts = [];
-side = 70;
+side = 40;
 
 function getColor(tribe) {
     switch (tribe) {
@@ -47,7 +47,7 @@ function updateImage(grid) {
             var square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
                 x: columnIndex * side,
-                y: 20 + rowIndex * side,
+                y: rowIndex * side,
                 width: side,
                 height: side,
                 fill: color,
@@ -63,9 +63,9 @@ function updateImage(grid) {
 
             var text = new Konva.Text({
                 x: 5 + columnIndex * side,
-                y: 40 + rowIndex * side,
+                y: 5 + rowIndex * side,
                 text: info,
-                fontSize: 16,
+                fontSize: 11,
                 fontFamily: 'Calibri',
                 fill: 'black'
             });
