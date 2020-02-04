@@ -32,14 +32,29 @@ function evolve(row, column) {
 
 function neighbors(row, column) {
     var neighbors = [];
+    var newRow;
+    var newColumn;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
-            if ((rowOffset != 0 || columnOffset != 0) &&
-                row + rowOffset < grid.length &&
-                column + columnOffset < grid[0].length &&
-                row + rowOffset >= 0 &&
-                column + columnOffset >= 0)
-                neighbors.push(grid[row + rowOffset][column + columnOffset]);
+            if (rowOffset != 0 || columnOffset != 0) {
+                if (row + rowOffset == grid.length)
+                    newRow = 0;
+                else if (row + rowOffset < 0)
+                    newRow = grid.length - 1;
+                else
+                    newRow = row + rowOffset;
+
+                if (column + columnOffset == grid[0].length)
+                    newColumn = 0;
+                else if (column + columnOffset < 0)
+                    newColumn = grid[0].length - 1;
+                else
+                    newColumn = column + columnOffset;
+
+                neighbors.push(grid[newRow][newColumn]);
+
+            }
+
         }
     }
     return neighbors;
