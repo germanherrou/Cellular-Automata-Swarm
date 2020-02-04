@@ -2,7 +2,7 @@ var headLength = 20;
 
 var stageRuleset1d = new Konva.Stage({
     container: 'ruleset1d', // id of container <div>
-    width: 500,
+    width: 250,
     height: 500
 });
 
