@@ -6,12 +6,11 @@ function changeNeighborhood() {
         if (bigNeighborhood) {
             element.disabled = false;
         }
-        else
-        {
+        else {
             element.checked = false;
             element.disabled = true;
         }
-            
+
     }
     toogleNeighborhood();
 }
@@ -22,7 +21,7 @@ function changeRows(total) {
         addRows(total - length);
     else
         removeRows(length - total);
-    updateImage(getGrid());
+    fitStageInConainer();
 }
 
 function changeColumns(total) {
@@ -31,5 +30,5 @@ function changeColumns(total) {
         addColumns(total - length);
     else
         removeColumns(length - total);
-    updateImage(getGrid());
+    fitStageInConainer();
 }

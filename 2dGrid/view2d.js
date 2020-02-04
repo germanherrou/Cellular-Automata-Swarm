@@ -3,7 +3,8 @@ var defaultSide = 50;
 var side = defaultSide;
 var grid = getGrid();
 var squares = [];
-var offsetWidth = 30;
+var offsetWidth = 45;
+var offsetHeight = 20;
 var maxWidth = 780;
 
 function updateImage(grid) {
@@ -12,21 +13,7 @@ function updateImage(grid) {
     });
     squares = [];
 
-    if (grid[0].length * defaultSide - offsetWidth >= stage.width()){
-        side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
-    }
-    else {
-        side = defaultSide;
-    }
-
     var color = 'white';
-
-    if (grid[0].length * defaultSide - offsetWidth >= stage.width()){
-        side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
-    }
-    else {
-        side = defaultSide;
-    }
 
     for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         const row = grid[rowIndex];
@@ -41,7 +28,7 @@ function updateImage(grid) {
             var square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
                 x: columnIndex * side,
-                y: 20 + rowIndex * side,
+                y: offsetHeight + rowIndex * side,
                 width: side,
                 height: side,
                 fill: color,
@@ -90,6 +77,15 @@ function fitStageInConainer() {
     else {
         stage.width(maxWidth);
     }
+
+    if (grid[0].length * defaultSide >= stage.width()){
+        side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
+    }
+    else {
+        side = defaultSide;
+    }
+
+    stage.height(side * grid.length + offsetHeight + 5);
     
     updateImage(grid); 
 }
