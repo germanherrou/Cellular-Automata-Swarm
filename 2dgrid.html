@@ -54,7 +54,7 @@
                     <div class="input-group input-group-lg">
                         <button class="settings-configuration" onclick="setRandom()">Conf. Aleatoria</button>
                         <button class="settings-configuration" onclick="next()">Siguiente</button>
-                        <button onclick="start()">Comenzar</button>
+                        <button onclick="start()" class="settings-configuration">Comenzar</button>
                         <button onclick="stop()">Detener</button>
                     </div>
 
@@ -63,7 +63,7 @@
                             <br>Tipo de vecindario
                             <br>Moore
                             <label class="switch">
-                                <input type="checkbox" onclick="changeNeighborhood()">
+                                <input type="checkbox" class = "settings-configuration" onclick="changeNeighborhood()">
                                 <span class="slider"></span>
                             </label>Von Neumann
                         </div>

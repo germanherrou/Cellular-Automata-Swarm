@@ -37,17 +37,19 @@ function updateImage(grid) {
             });
 
             square.on('click tap', function (info) {
-                value = 0;
-                if (this.fill() == 'gray') {
-                    this.fill('white');
-                } else {
-                    this.fill('gray');
-                    value = 1;
+                if (!isRunning()) {
+                    value = 0;
+                    if (this.fill() == 'gray') {
+                        this.fill('white');
+                    } else {
+                        this.fill('gray');
+                        value = 1;
+                    }
+                    layer.draw();
+                    var row = (this.attrs.y - 20) / side;
+                    var column = this.attrs.x / side;
+                    update(row, column, value);
                 }
-                layer.draw();
-                var row = (this.attrs.y - 20) / side;
-                var column = this.attrs.x / side;
-                update(row, column, value);
             })
 
             squares.push(square);
@@ -78,7 +80,7 @@ function fitStageInConainer() {
         stage.width(maxWidth);
     }
 
-    if (grid[0].length * defaultSide >= stage.width()){
+    if (grid[0].length * defaultSide >= stage.width()) {
         side = Math.floor((stage.width() - offsetWidth) / grid[0].length);
     }
     else {
@@ -86,8 +88,8 @@ function fitStageInConainer() {
     }
 
     stage.height(side * grid.length + offsetHeight + 5);
-    
-    updateImage(grid); 
+
+    updateImage(grid);
 }
 
 
