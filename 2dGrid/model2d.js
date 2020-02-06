@@ -84,13 +84,13 @@ function evolve(row, column) {
 }
 
 function randomConfiguration() {
-    newGrid(function() {
-        return Math.round(Math.random());        
+    newGrid(function () {
+        return Math.round(Math.random());
     })
 }
 
 function clear() {
-    newGrid(function() {
+    newGrid(function () {
         return 0;
     })
 }
@@ -112,12 +112,23 @@ function mooreNeighbors(row, column) {
     var total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
-            if ((rowOffset != 0 || columnOffset != 0) &&
-                row + rowOffset < grid.length &&
-                column + columnOffset < grid[0].length &&
-                row + rowOffset >= 0 &&
-                column + columnOffset >= 0)
-                total += grid[row + rowOffset][column + columnOffset];
+            if (rowOffset != 0 || columnOffset != 0) {
+                if (row + rowOffset == grid.length)
+                    newRow = 0;
+                else if (row + rowOffset < 0)
+                    newRow = grid.length - 1;
+                else
+                    newRow = row + rowOffset;
+
+                if (column + columnOffset == grid[0].length)
+                    newColumn = 0;
+                else if (column + columnOffset < 0)
+                    newColumn = grid[0].length - 1;
+                else
+                    newColumn = column + columnOffset;
+
+                total += grid[newRow][newColumn];
+            }
         }
     }
     return total;
@@ -128,12 +139,23 @@ function vonNeumannNeighbors(row, column) {
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
             if (rowOffset != columnOffset &&
-                rowOffset != -columnOffset &&
-                row + rowOffset < grid.length &&
-                column + columnOffset < grid[0].length &&
-                row + rowOffset >= 0 &&
-                column + columnOffset >= 0)
-                total += grid[row + rowOffset][column + columnOffset];
+                rowOffset != -columnOffset) {
+                if (row + rowOffset == grid.length)
+                    newRow = 0;
+                else if (row + rowOffset < 0)
+                    newRow = grid.length - 1;
+                else
+                    newRow = row + rowOffset;
+
+                if (column + columnOffset == grid[0].length)
+                    newColumn = 0;
+                else if (column + columnOffset < 0)
+                    newColumn = grid[0].length - 1;
+                else
+                    newColumn = column + columnOffset;
+
+                total += grid[newRow][newColumn];
+            }
         }
     }
     return total;
