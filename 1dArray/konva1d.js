@@ -74,4 +74,3 @@ function updateImage(array) {
     // draw the image
     layer.draw();
 }
-

@@ -12,7 +12,7 @@ var side = defaultSide;
 
 function updateImage(grid) {
     squares.forEach(square => {
-        square.remove();
+        square.destroy();
     });
     squares = [];
 
