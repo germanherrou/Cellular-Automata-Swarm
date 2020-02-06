@@ -84,11 +84,23 @@ function evolve(row, column) {
 }
 
 function randomConfiguration() {
+    newGrid(function() {
+        return Math.round(Math.random());        
+    })
+}
+
+function clear() {
+    newGrid(function() {
+        return 0;
+    })
+}
+
+function newGrid(func) {
     var newGrid = [];
     grid.forEach(row => {
         var newRow = [];
         row.forEach(element => {
-            var number = Math.round(Math.random());
+            var number = func();
             newRow.push(number);
         });
         newGrid.push(newRow);
