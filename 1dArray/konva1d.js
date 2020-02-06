@@ -2,13 +2,13 @@ var array = getGrid();
 var defaultSide = 50;
 var side = defaultSide;
 var squares = [];
-var layer = new Konva.Layer();
 var stage = new Konva.Stage({
     container: 'container1d', // id of container <div>
     width: 760,
     height: 100,
 
 });
+var layer = new Konva.Layer();
 
 function updateImage(array) {
     squares.forEach(square => {
