@@ -17,8 +17,8 @@ function getRule() {
     return rule;
 }
 
-function updateRule(value) {
-    rule = value;
+function updateRule(newRule) {
+    rule = newRule;
 }
 
 function growArray(newSize) {
