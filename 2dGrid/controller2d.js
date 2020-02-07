@@ -1,9 +1,9 @@
-var bigNeighborhood = true;
+var mooreNeighborhood = true;
 function changeNeighborhood() {
-    bigNeighborhood = !bigNeighborhood;
-    var elements = document.getElementsByClassName("bigNeighborhood");
+    mooreNeighborhood = !mooreNeighborhood;
+    var elements = document.getElementsByClassName("mooreNeighborhood");
     for (let element of elements) {
-        if (bigNeighborhood) {
+        if (mooreNeighborhood) {
             element.disabled = false;
         }
         else {
