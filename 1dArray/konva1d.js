@@ -40,7 +40,8 @@ function updateImage(array) {
             height: side,
             fill: color,
             stroke: 'black',
-            strokeWidth: 4
+            strokeWidth: 4,
+            preventDefault: false
         });
 
         square.on('click tap', function(info) {
