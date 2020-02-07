@@ -60,6 +60,10 @@ function toggle(name, value) {
         array.push(value);
 }
 
+function isMooreNeighborhood() {
+    return mooreNeighborhood;
+}
+
 function toogleNeighborhood() {
     mooreNeighborhood = !mooreNeighborhood;
 }

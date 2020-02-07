@@ -1,9 +1,8 @@
-var mooreNeighborhood = true;
 function changeNeighborhood() {
-    mooreNeighborhood = !mooreNeighborhood;
+    toogleNeighborhood();
     var elements = document.getElementsByClassName("mooreNeighborhood");
     for (let element of elements) {
-        if (mooreNeighborhood) {
+        if (isMooreNeighborhood()) {
             element.disabled = false;
         }
         else {
@@ -12,7 +11,6 @@ function changeNeighborhood() {
         }
 
     }
-    toogleNeighborhood();
 }
 
 function changeRows(total) {
