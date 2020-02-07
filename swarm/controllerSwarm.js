@@ -5,10 +5,10 @@ function setCellValues() {
  var culture = document.getElementById("culture-input").value;
 
  var cell = getGrid()[currentRow][currentColumn];
- cell.tribe = tribe;
- cell.food = food;
- cell.war = war;
- cell.culture = culture;
+ cell.tribe = Number(tribe);
+ cell.food = Number(food);
+ cell.war = Number(war);
+ cell.culture = Number(culture);
 
  update(currentRow, currentColumn, cell);
  resetCellInput();
