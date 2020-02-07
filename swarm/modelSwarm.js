@@ -23,7 +23,7 @@ function evolve(row, column) {
     var cell = getGrid()[row][column];
     var neighbours = neighbors(row, column);
     if (isAlive(cell))
-        cell.tribe = survives(cell, neighbours);
+        cell.tribe = survivors(cell, neighbours);
     else
         cell.tribe = births(neighbours);
 
@@ -64,7 +64,7 @@ function isAlive(cell) {
     return cell.tribe != 0;
 }
 
-function survives(cell, neighbours) {
+function survivors(cell, neighbours) {
     var sameTribe = 0;
     var diferentTribe = 0;
     var food = cell.food;

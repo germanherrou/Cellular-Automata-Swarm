@@ -9,7 +9,7 @@ var grid = [
     [1, 0, 0, 0, 0, 1, 0, 1],
 ];
 var births = [3];
-var survives = [2, 3];
+var survivors = [2, 3];
 var mooreNeighborhood = true; // Moore 8 vecinos, Von Neumann 4 vecinos
 
 
@@ -51,8 +51,8 @@ function removeColumns(value) {
 
 function toggle(name, value) {
     var array = births;
-    if (name == 'survives')
-        array = survives;
+    if (name == 'survivors')
+        array = survivors;
 
     if (array.includes(value))
         array.splice(array.indexOf(value), 1);
@@ -74,7 +74,7 @@ function evolve(row, column) {
         neighbors = vonNeumannNeighbors(row, column);
 
     if (grid[row][column])
-        result = survives.includes(neighbors);
+        result = survivors.includes(neighbors);
     else result = births.includes(neighbors);
 
     if (result)
