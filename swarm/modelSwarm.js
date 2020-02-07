@@ -21,11 +21,11 @@ function randomConfiguration() {
 
 function evolve(row, column) {
     var cell = getGrid()[row][column];
-    var neighbours = neighbors(row, column);
+    var neighbors = neighbors(row, column);
     if (isAlive(cell))
-        cell.tribe = survivors(cell, neighbours);
+        cell.tribe = survivors(cell, neighbors);
     else
-        cell.tribe = births(neighbours);
+        cell.tribe = births(neighbors);
 
     return cell;
 }
@@ -64,7 +64,7 @@ function isAlive(cell) {
     return cell.tribe != 0;
 }
 
-function survivors(cell, neighbours) {
+function survivors(cell, neighbors) {
     var sameTribe = 0;
     var diferentTribe = 0;
     var food = cell.food;
@@ -72,17 +72,17 @@ function survivors(cell, neighbours) {
     var enemyWarScore = 0;
     var newTribe;
 
-    neighbours.forEach(neighbour => {
+    neighbors.forEach(neighbor => {
         //0 no hay nadie en la celda
-        if (neighbour.tribe != 0) {
-            if (neighbour.tribe == cell.tribe) {
+        if (neighbor.tribe != 0) {
+            if (neighbor.tribe == cell.tribe) {
                 sameTribe++;
-                food += neighbour.food;
-                warScore += neighbour.war;
+                food += neighbor.food;
+                warScore += neighbor.war;
             }
             else {
                 diferentTribe++;
-                enemyWarScore += neighbour.war;
+                enemyWarScore += neighbor.war;
             }
 
         }
@@ -105,18 +105,18 @@ function survivors(cell, neighbours) {
     return newTribe;
 }
 
-function births(neighbours) {
-    //neighboursPerTribe[n] cantidad miembros tribu n + 1
+function births(neighbors) {
+    //neighborsPerTribe[n] cantidad miembros tribu n + 1
     //tribus 1 azul 2 rojo 3 amarillo 4 verde
     var foodPerTribe = [0, 0, 0, 0];
     var culturePerTribe = [0, 0, 0, 0];
     var newTribe = 0;
     var mostCulture = 0;
 
-    neighbours.forEach(neighbour => {
-        if (neighbour.tribe > 0) {
-            foodPerTribe[neighbour.tribe - 1] += neighbour.food;
-            culturePerTribe[neighbour.tribe - 1] += neighbour.culture;
+    neighbors.forEach(neighbor => {
+        if (neighbor.tribe > 0) {
+            foodPerTribe[neighbor.tribe - 1] += neighbor.food;
+            culturePerTribe[neighbor.tribe - 1] += neighbor.culture;
         }
     });
 
