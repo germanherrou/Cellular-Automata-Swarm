@@ -66,7 +66,8 @@ for (let index = 7; index >= 0; index--) {
         height: side,
         fill: color,
         stroke: 'black',
-        strokeWidth: 4
+        strokeWidth: 4,
+        preventDefault: false
     });
 
     layerRuleset1d.add(squareResult);
