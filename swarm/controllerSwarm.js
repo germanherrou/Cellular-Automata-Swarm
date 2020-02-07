@@ -1,4 +1,4 @@
-function setCellValues(params) {
+function setCellValues() {
  var tribe = document.getElementById("tribe-input").value;
  var food = document.getElementById("food-input").value;
  var war = document.getElementById("war-input").value;

@@ -72,7 +72,7 @@ function updateImage(grid) {
             });
 
             text.on('click tap', function (info) {
-                var row = (this.attrs.y - 40) / side;
+                var row = (this.attrs.y - 5) / side;
                 var column = (this.attrs.x - 5) / side;
                 setInfoChangeMenu(row, column);
             })
