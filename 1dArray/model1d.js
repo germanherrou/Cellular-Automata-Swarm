@@ -36,7 +36,7 @@ function shrinkArray(newSize) {
 function newGrid(func) {
     var newArray = [];
     for (let index = 0; index < array.length; index++) {
-        var number = func();
+        var number = func(index);
         newArray.push(number);
     }
     array = newArray;
@@ -56,21 +56,16 @@ function clear() {
 }
 
 function transition() {
-    var newArray = [];
-    var value = 0;
-    for (let index = 0; index < array.length; index++) {
+    newGrid(function (index) {
+        var value = -1;
         if (index == 0)
             value = evolve(array[(array.length - 1)], array[index], array[index + 1]);
         else if (index == (array.length - 1))
             value = evolve(array[index - 1], array[index], array[0]);
         else
             value = evolve(array[index - 1], array[index], array[index + 1]);
-
-        newArray.push(value);
-
-    }
-    array = newArray;
-
+        return value;
+    })
 }
 
 function evolve(previous, current, next) {
