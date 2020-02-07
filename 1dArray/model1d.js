@@ -33,6 +33,16 @@ function shrinkArray(newSize) {
     }
 }
 
+function newGrid(func) {
+    var newArray = [];
+    for (let index = 0; index < array.length; index++) {
+        var number = func();
+        newArray.push(number);
+    }
+    array = newArray;
+
+}
+
 function randomConfiguration() {
     newGrid(function () {
         return Math.round(Math.random());
@@ -43,16 +53,6 @@ function clear() {
     newGrid(function () {
         return 0;
     })
-}
-
-function newGrid(func) {
-    var newArray = [];
-    for (let index = 0; index < array.length; index++) {
-        var number = func();
-            newArray.push(number);
-    }
-    array = newArray;
-
 }
 
 function transition() {

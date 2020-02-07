@@ -83,18 +83,6 @@ function evolve(row, column) {
 
 }
 
-function randomConfiguration() {
-    newGrid(function () {
-        return Math.round(Math.random());
-    })
-}
-
-function clear() {
-    newGrid(function () {
-        return 0;
-    })
-}
-
 function newGrid(func) {
     var newGrid = [];
     grid.forEach(row => {
@@ -106,6 +94,18 @@ function newGrid(func) {
         newGrid.push(newRow);
     });
     grid = newGrid;
+}
+
+function randomConfiguration() {
+    newGrid(function () {
+        return Math.round(Math.random());
+    })
+}
+
+function clear() {
+    newGrid(function () {
+        return 0;
+    })
 }
 
 function mooreNeighbors(row, column) {
