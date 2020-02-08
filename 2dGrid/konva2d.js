@@ -40,7 +40,7 @@ function updateImage(grid) {
                 preventDefault: false
             });
 
-            square.on('click', function (info) {
+            square.on('mousedown', function (info) {
                 if (!isRunning()) {
                     value = 0;
                     if (this.fill() == 'gray') {
@@ -53,6 +53,12 @@ function updateImage(grid) {
                     var row = (this.attrs.y - 20) / side;
                     var column = this.attrs.x / side;
                     update(row, column, value);
+                }
+            })
+
+            square.on('mouseover', function (event) {
+                if (event.evt.buttons == 1){
+                    event.target.fire('mousedown');
                 }
             })
 
