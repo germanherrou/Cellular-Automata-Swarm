@@ -44,7 +44,7 @@ function updateImage(array) {
             preventDefault: false
         });
 
-        square.on('click', function(info) {
+        square.on('mousedown', function(info) {
             if (!isRunning()) {
                 value = 0;
                 if (this.fill() == 'gray') {
@@ -57,6 +57,12 @@ function updateImage(array) {
                 update(this.index, value);
             }
 
+        })
+
+        square.on('mouseover', function (event) {
+            if (event.evt.buttons == 1){
+                event.target.fire('mousedown');
+            }
         })
 
         squares.push(square);
