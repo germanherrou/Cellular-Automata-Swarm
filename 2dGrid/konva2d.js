@@ -71,5 +71,5 @@ function updateImage(grid) {
     stage.add(layer);
 
     // draw the image
-    layer.draw();
+    layer.batchDraw();
 }

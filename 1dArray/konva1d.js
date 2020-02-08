@@ -73,5 +73,5 @@ function updateImage(array) {
     stage.add(layer);
 
     // draw the image
-    layer.draw();
+    layer.batchDraw();
 }
