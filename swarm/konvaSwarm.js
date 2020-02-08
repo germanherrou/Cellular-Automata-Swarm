@@ -56,7 +56,7 @@ function updateImage(grid) {
                 preventDefault: false
             });
 
-            square.on('click tap', function (info) {
+            square.on('click', function (info) {
                 var row = (this.attrs.y - 20) / side;
                 var column = this.attrs.x / side;
                 setInfoChangeMenu(row, column);
@@ -71,7 +71,7 @@ function updateImage(grid) {
                 fill: 'black'
             });
 
-            text.on('click tap', function (info) {
+            text.on('click', function (info) {
                 var row = (this.attrs.y - 5) / side;
                 var column = (this.attrs.x - 5) / side;
                 setInfoChangeMenu(row, column);

@@ -40,7 +40,7 @@ function updateImage(grid) {
                 preventDefault: false
             });
 
-            square.on('click tap', function (info) {
+            square.on('click', function (info) {
                 if (!isRunning()) {
                     value = 0;
                     if (this.fill() == 'gray') {
