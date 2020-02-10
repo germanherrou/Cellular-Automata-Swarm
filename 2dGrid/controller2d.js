@@ -1,6 +1,9 @@
-function changeNeighborhood() {
-    toogleNeighborhood();
-    setNeighborhoodButtons();
+function setMoore(state) {
+    if (isMooreNeighborhood() != state) {
+        toogleNeighborhood();
+        setNeighborhoodButtons();
+    }
+    
 }
 
 function changeRows(total) {

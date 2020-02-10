@@ -31,16 +31,16 @@
         </ul>
     </nav>
 
-    <div class="">
+    <div class="container">
         <div class="row">
-            <div id="stage-container" class="col-sm">
+            <div id="stage-container" class="col">
                 <div id="container2d">
                 </div>
             </div>
 
-            <div id="controlPanel" class="col-sm input-group input-group-lg">
-                <div>
-                    <form class="input-group input-group-lg">
+            <div id="controlPanel" class="col">
+                <div class="row">
+                    <div class="input-group">
                         Columnas
                         <br>
                         <input type="range" class="form-control-range settings-configuration" name="columns" min="3"
@@ -49,99 +49,109 @@
                         <br>
                         <input type="range" class="form-control-range settings-configuration" name="rows" min="3"
                             max="20" value="8" oninput="changeRows(this.value)">
-                    </form>
-                    <p id=simulacion>Simulación detenida</p>
-                    <div class="input-group input-group-lg">
-                        <button class="settings-configuration" onclick="setClear()">Vaciar</button>
-                        <button class="settings-configuration" onclick="setRandom()">Configuración Aleatoria</button>
-                        <button class="settings-configuration" onclick="next()">Siguiente</button>
-                        <button onclick="start()" class="settings-configuration">Comenzar</button>
-                        <button onclick="stop2d()">Detener</button>
                     </div>
 
-                    <form class="input-group input-group-lg">
-                        <div>
-                            <br>Tipo de vecindario
-                            <br>Moore
-                            <label class="switch">
-                                <input type="checkbox" class="neighborhood-toggle settings-configuration" onclick="changeNeighborhood()">
-                                <span class="slider"></span>
-                            </label>Von Neumann
+
+                    <div class="btn-group-vertical input-group">
+                        <div class="alert alert-secondary" role="alert">
+                            <p id=simulacion>Simulación detenida</p>
                         </div>
-                    </form>
 
-                    <p>Vecinos para que nazca una celda vacía</p>
-                    <div id="births" class="input-group input-group-lg">
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('births', 0)">0</label>
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('births', 1)">1</label>
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('births', 2)">2</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('births', 3)"
-                                checked>3</label>
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('births', 4)">4</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('births', 5)">5</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('births', 6)">6</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('births', 7)">7</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('births', 8)">8</label>
+                        <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
+                        <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
+                            Aleatoria</button>
+                        <button class="btn btn-primary settings-configuration" onclick="next()">Siguiente</button>
+                        <button class="btn btn-primary settings-configuration" onclick="start()">Comenzar</button>
+                        <button class="btn btn-primary" onclick="stop2d()">Detener</button>
                     </div>
 
-                    <p>Vecinos para que sobreviva una celda existente</p>
-                    <div id="survivors" class="input-group input-group-lg">
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('survivors', 0)">0</label>
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('survivors', 1)">1</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survivors', 2)"
-                                checked>2</label>
-                        <label><input type="checkbox" class="settings-configuration" onclick="toggle('survivors', 3)"
-                                checked>3</label>
-                        <label><input type="checkbox" class="settings-configuration"
-                                onclick="toggle('survivors', 4)">4</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('survivors', 5)">5</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('survivors', 6)">6</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('survivors', 7)">7</label>
-                        <label><input class="mooreNeighborhood settings-configuration" type="checkbox"
-                                onclick="toggle('survivors', 8)">8</label>
-                    </div>
+                    <div class="btn-group-vertical input-group">
+                        <p class="p-3 bg-light text-center">Tipo de vecindario</p>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="options" id="option1" onclick="setMoore(true)" checked>
+                                Moore
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="options" onclick="setMoore(false)" id="option2"> Von
+                                Neumann
+                            </label>
+                        </div>
 
+                        <div>
+                            <p class="p-3 bg-light text-center">Vecinos para que nazca una celda vacía</p>
+                        </div>
+                        <div class="input-group">
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 0)">0</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 1)">1</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 2)">2</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 3)" checked>3</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('births', 4)">4</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('births', 5)">5</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('births', 6)">6</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('births', 7)">7</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('births', 8)">8</input>
+                        </div>
+                        <div class="p-3 bg-light text-center">
+                            Vecinos para que sobreviva una celda existente
+                        </div>
+                        <div class="input-group">
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survivors', 0)">0</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survivors', 1)">1</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survivors', 2)" checked>2</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survivors', 3)" checked>3</input>
+                            <input type="checkbox" class="settings-configuration"
+                                onclick="toggle('survivors', 4)">4</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('survivors', 5)">5</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('survivors', 6)">6</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('survivors', 7)">7</input>
+                            <input type="checkbox" class="mooreNeighborhood settings-configuration"
+                                onclick="toggle('survivors', 8)">8</input>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n "
-            crossorigin="anonymous "></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
-            crossorigin="anonymous "></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
-            crossorigin="anonymous "></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n "
+                crossorigin="anonymous "></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+                crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
+                crossorigin="anonymous "></script>
 
 
-        <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
-        <script src="./2dGrid/model2d.js"></script>
-        <script src="./common/modelGrid.js"></script>
-        <script src="./2dGrid/konva2d.js"></script>
-        <script src="./2dGrid/view2d.js"></script>
-        <script src="./2dGrid/controller2d.js"></script>
+            <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
+            <script src="./2dGrid/model2d.js"></script>
+            <script src="./common/modelGrid.js"></script>
+            <script src="./2dGrid/konva2d.js"></script>
+            <script src="./2dGrid/view2d.js"></script>
+            <script src="./2dGrid/controller2d.js"></script>
 
-        <script src="./common/view.js"></script>
-        <script src="./common/controller.js"></script>
+            <script src="./common/view.js"></script>
+            <script src="./common/controller.js"></script>
 
-        <link rel="stylesheet" href="canvas.css">
-        <link rel="stylesheet" href="slider.css">
+            <link rel="stylesheet" href="canvas.css">
+            <link rel="stylesheet" href="slider.css">
 </body>
 
 </html>
