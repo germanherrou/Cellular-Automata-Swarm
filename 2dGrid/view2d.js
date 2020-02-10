@@ -1,4 +1,4 @@
-var offsetWidth = 45;
+var offsetWidth = 20;
 var offsetHeight = 20;
 
 function setNeighborhoodButtons() {

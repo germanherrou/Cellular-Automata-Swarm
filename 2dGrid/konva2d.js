@@ -50,7 +50,7 @@ function updateImage(grid) {
                         value = 1;
                     }
                     layer.draw();
-                    var row = (this.attrs.y - 20) / side;
+                    var row = (this.attrs.y - offsetHeight) / side;
                     var column = this.attrs.x / side;
                     update(row, column, value);
                 }
