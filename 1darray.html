@@ -33,36 +33,34 @@
     </nav>
 
     <div id="stage-container" class="col-sm">
-        <div id="container1d" >
+        <div id="container1d">
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div id="ruleset1d" class="col-sm">
+            <div id="ruleset1d" class="col">
             </div>
-            <div id="controlPanel" class="col-sm input-group input-group-lg">
-                <div>
-                    <form>
-                        Seleccione regla a utilizar (Rango 0 a 255)
-                        <br>
-                        <input type="range" class="form-control-range settings-configuration" name="range" min="0"
-                            max="255" value="50" oninput="changeRule(this.value)">
-                        <br>
-                        <p id="ruleRange">50</p>
-                        Seleccione tamaño de arreglo
-
-                        <input type="range" class="form-control-range settings-configuration" name="size" min="3"
-                            max="15" value="10" oninput="resize(this.value)">
-                    </form>
+            <div id="controlPanel" class="col input-group">
+                <div class="input-group">
+                    <p class="text-left">Seleccione regla a utilizar (Rango 0 a 255):&nbsp</p>
+                    <p id="ruleRange" class="text-right">50</p>
+                    <input type="range" class="form-control-range settings-configuration" name="range" min="0" max="255"
+                        value="50" oninput="changeRule(this.value)">
+                    Seleccione tamaño de arreglo
+                    <input type="range" class="form-control-range settings-configuration" name="size" min="3" max="15"
+                        value="10" oninput="resize(this.value)">
                 </div>
-                <div>
-                    <p id=simulacion>Simulación detenida</p>
-                    <button class="settings-configuration" onclick="setClear()">Vaciar</button>
-                    <button class="settings-configuration" onclick="setRandom()">Configuración Aleatoria</button>
-                    <button class="settings-configuration" onclick="next()">Siguiente</button>
-                    <button class="settings-configuration" onclick="start()">Comenzar</button>
-                    <button onclick="stop()">Detener</button>
+                <div class="btn-group-vertical input-group">
+                    <div class="alert alert-secondary" role="alert">
+                        <p id=simulacion>Simulación detenida</p>
+                    </div>
+                    <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
+                    <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
+                        Aleatoria</button>
+                    <button class="btn btn-primary settings-configuration" onclick="next()">Siguiente</button>
+                    <button class="btn btn-primary settings-configuration" onclick="start()">Comenzar</button>
+                    <button class="btn btn-primary" onclick="stop()">Detener</button>
                 </div>
             </div>
         </div>
@@ -85,7 +83,7 @@
     <script src="./1dArray/model1d.js "></script>
     <script src="./1dArray/konva1d.js"></script>
     <script src="./1dArray/view1d.js "></script>
-    
+
     <script src="./1dArray/controller1d.js "></script>
     <script src="./1dArray/ruleset1d.js "></script>
 
