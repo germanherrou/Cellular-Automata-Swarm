@@ -1,6 +1,6 @@
 var squares = [];
 var texts = [];
-side = 40;
+side = 60;
 
 function getColor(tribe) {
     switch (tribe) {
@@ -57,7 +57,7 @@ function updateImage(grid) {
             });
 
             square.on('click', function (info) {
-                var row = (this.attrs.y - 20) / side;
+                var row = this.attrs.y / side;
                 var column = this.attrs.x / side;
                 setInfoChangeMenu(row, column);
             })
@@ -66,7 +66,7 @@ function updateImage(grid) {
                 x: 5 + columnIndex * side,
                 y: 5 + rowIndex * side,
                 text: info,
-                fontSize: 11,
+                fontSize: 18,
                 fontFamily: 'Calibri',
                 fill: 'black',
                 preventDefault: false
@@ -105,7 +105,7 @@ function updateImage(grid) {
 var stage = new Konva.Stage({
     container: 'container-swarm', // id of container <div>
     width: 1000,
-    height: 1000,
+    height: 850,
 });
 
 var layer = new Konva.Layer();
