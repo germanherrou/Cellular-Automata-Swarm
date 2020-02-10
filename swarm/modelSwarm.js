@@ -19,17 +19,6 @@ function randomConfiguration() {
     grid = newGrid;
 }
 
-function evolve(row, column) {
-    var cell = getGrid()[row][column];
-    var neighbors = neighbors(row, column);
-    if (isAlive(cell))
-        cell.tribe = survivors(cell, neighbors);
-    else
-        cell.tribe = births(neighbors);
-
-    return cell;
-}
-
 function neighbors(row, column) {
     var neighbors = [];
     var newRow;
@@ -59,6 +48,19 @@ function neighbors(row, column) {
     }
     return neighbors;
 }
+
+function evolve(row, column) {
+    var cell = getGrid()[row][column];
+    var neigh = neighbors(row, column);
+    if (isAlive(cell))
+        cell.tribe = survivors(cell, neigh);
+    else
+        cell.tribe = births(neigh);
+
+    return cell;
+}
+
+
 
 function isAlive(cell) {
     return cell.tribe != 0;
