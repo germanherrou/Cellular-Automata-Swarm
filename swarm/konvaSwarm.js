@@ -68,7 +68,8 @@ function updateImage(grid) {
                 text: info,
                 fontSize: 11,
                 fontFamily: 'Calibri',
-                fill: 'black'
+                fill: 'black',
+                preventDefault: false
             });
 
             text.on('click', function (info) {
