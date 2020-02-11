@@ -55,70 +55,44 @@ function evolve(row, column) {
     if (isAlive(cell))
         cell.tribe = survivors(cell, neigh);
     else
-        cell.tribe = births(neigh);
+        cell.tribe = births(cell, neigh);
 
     return cell;
 }
-
-
 
 function isAlive(cell) {
     return cell.tribe != 0;
 }
 
 function survivors(cell, neighbors) {
-    var sameTribe = 0;
-    var diferentTribe = 0;
-    var food = cell.food;
-    var warScore = cell.war;
-    var enemyWarScore = 0;
-    var newTribe;
-
-    neighbors.forEach(neighbor => {
-        //0 no hay nadie en la celda
-        if (neighbor.tribe != 0) {
-            if (neighbor.tribe == cell.tribe) {
-                sameTribe++;
-                food += neighbor.food;
-                warScore += neighbor.war;
-            }
-            else {
-                diferentTribe++;
-                enemyWarScore += neighbor.war;
-            }
-
-        }
-
-    });
-    //Requiero suficiente alimento
-    if (food >= foodNeeded) {
-        //Deben superar o igualar tribus enemigas
-        if (enemyWarScore > warScore) {
-            newTribe = 0; //Muere por tener menos punt. guerra
-        }
-        else {
-            newTribe = cell.tribe; //Sobrevive por tener punt. guerra suficiente
-        }
-    }
-    else {
-        newTribe = 0; //Muere de inanición
-    }
-
-    return newTribe;
+    return mostResources(cell, neighbors, function (element) {
+        return element.war;
+    })
 }
 
-function births(neighbors) {
+function births(cell, neighbors) {
+    return mostResources(cell, neighbors, function (element) {
+        return element.culture;
+    })
+}
+
+function mostResources(cell, neighbors, funcResource) {
     //neighborsPerTribe[n] cantidad miembros tribu n + 1
     //tribus 1 azul 2 rojo 3 amarillo 4 verde
     var foodPerTribe = [0, 0, 0, 0];
-    var culturePerTribe = [0, 0, 0, 0];
+    var resourcesPerTribe = [0, 0, 0, 0];
     var newTribe = 0;
-    var mostCulture = 0;
+    var mostResources = 0;
+
+    if (cell.tribe > 0) {
+        foodPerTribe[cell.tribe - 1] += cell.food;
+        resourcesPerTribe[cell.tribe - 1] += funcResource(cell);
+    }
 
     neighbors.forEach(neighbor => {
         if (neighbor.tribe > 0) {
             foodPerTribe[neighbor.tribe - 1] += neighbor.food;
-            culturePerTribe[neighbor.tribe - 1] += neighbor.culture;
+            resourcesPerTribe[neighbor.tribe - 1] += funcResource(neighbor);
         }
     });
 
@@ -126,18 +100,17 @@ function births(neighbors) {
         //Solo los tengo en cuenta si juntan
         //el requisito de alimentos
         if (foodPerTribe[index] >= foodNeeded) {
-            //Me quedo con el que tenga mayor cultura
-            if (culturePerTribe[index] > mostCulture) {
+            //Me quedo con el que tenga mas recursos
+            if (resourcesPerTribe[index] > mostResources) {
                 newTribe = index + 1;
-                mostCulture = culturePerTribe[index];
+                mostResources = resourcesPerTribe[index];
             }
-            else if (culturePerTribe[index] == mostCulture) {
+            else if (resourcesPerTribe[index] == mostResources) {
                 //Si hay dos o mas tribus con misma puntuacion
                 //ninguna se queda con la casilla
                 newTribe = 0;
             }
         }
     }
-
     return newTribe;
 }
