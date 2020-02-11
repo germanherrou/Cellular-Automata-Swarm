@@ -51,13 +51,14 @@ function neighbors(row, column) {
 
 function evolve(row, column) {
     var cell = getGrid()[row][column];
+    var newCell = new SwarmCell(cell.tribe, cell.food, cell.war, cell.culture)
     var neigh = neighbors(row, column);
     if (isAlive(cell))
-        cell.tribe = survivors(cell, neigh);
+        newCell.tribe = survivors(cell, neigh);
     else
-        cell.tribe = births(cell, neigh);
+        newCell.tribe = births(cell, neigh);
 
-    return cell;
+    return newCell;
 }
 
 function isAlive(cell) {
