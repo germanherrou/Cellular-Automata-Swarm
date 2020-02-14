@@ -104,7 +104,7 @@ function updateImage(grid) {
 
 var stage = new Konva.Stage({
     container: 'container-swarm', // id of container <div>
-    width: 1000,
+    width: 850,
     height: 850,
 });
 
