@@ -4,7 +4,7 @@ let squares = [];
 let stage = new Konva.Stage({
     container: 'container1d', // id of container <div>
     width: 760,
-    height: 100,
+    height: 80,
 
 });
 let layer = new Konva.Layer();

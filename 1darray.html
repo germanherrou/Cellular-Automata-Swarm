@@ -51,16 +51,18 @@
                     <input type="range" class="form-control-range settings-configuration" name="size" min="3" max="15"
                         value="10" oninput="resize(this.value)">
                 </div>
-                <div class="btn-group-vertical input-group">
-                    <div class="alert alert-secondary" role="alert">
-                        <p id=simulacion>Simulación detenida</p>
+                <div>
+                    <div id="simulacion" class="alert alert-secondary" role="alert alert-info">Simulación detenida
                     </div>
-                    <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
-                    <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
-                        Aleatoria</button>
+                </div>
+                
+                <div class="btn-group input-group">
                     <button class="btn btn-primary settings-configuration" onclick="next()">Siguiente</button>
                     <button class="btn btn-primary settings-configuration" onclick="start()">Comenzar</button>
                     <button class="btn btn-primary" onclick="stop()">Detener</button>
+                    <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
+                    <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
+                        Aleatoria</button>
                 </div>
             </div>
         </div>

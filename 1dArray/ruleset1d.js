@@ -1,9 +1,9 @@
-let headLength = 20;
+let headLength = side / 2.5;
 
 let stageRuleset1d = new Konva.Stage({
     container: 'ruleset1d', // id of container <div>
     width: 250,
-    height: 500
+    height: side * 11
 });
 
 let layerRuleset1d = new Konva.Layer();
