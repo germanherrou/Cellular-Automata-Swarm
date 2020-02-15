@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cellular Automata Swarm</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -30,12 +31,89 @@
             </li>
         </ul>
     </nav>
+    <br>
+    <h1 class="text-center">Aútomatas Celulares</h1>
+    <h3 class="text-center">Un modelo matemático para la simulación de comportamientos emergentes</h2>
+        <br>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    ¿Qué es un autómata celular?
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body text-justify">
+                    Un sistema autómata celular es un modelo matemático abstracto, consistente en un conjunto de celdas,
+                    organizadas generalmente en forma de arreglo de n-dimensiones.
+                    Cada celda tiene dos o más estados posibles, y estos cambian en función del tiempo, en intervalos
+                    discretos,
+                    de acuerdo a un conjunto de reglas predeterminadas utilizando como entrada el estado local actual.
+                    En esta aplicación web podremos ejecutar tres tipos de simulaciones: Unidimensionales, Bidimensionales, y el Modelo Enjambres.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    ¿Cuáles son las características del modelo unidimensional?
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body text-justify">
+                    En este modelo, los datos de entrada para cada transición son el nodo actual y sus dos vecinos. Para cada combinación posible definimos un estado de salida: ocupado o vacío. Podemos asignar un nombre a una regla codificando cada salida como un dígito de un número binario.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ¿Cuáles son las características del modelo bidimensional?
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body text-justify">
+                  <p>En este modelo, cada celda está rodeada por ocho casillas.
+                   Podemos definir tos tipos de vecindarios: El vecindario Von Neumann está compuesto por únicamente los cuatrovecinos cardinales, mientras que el vecindario Moore está compuesto por esos cuatro además de los vecinos diagonales, para un total de ocho.</p>
+                   Una vez definido el vecindario, deberemos seleccionar que cantidades de vecinos resultarán en una entrada válida para que una ocupada lo continue estando o una celda vacía pase a estar ocupada.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      ¿Cuáles son las características del modelo enjambres?
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body text-justify">
+                    <p>En este modelo, en lugar de tener simplemente dos estados, vacío u ocupado, definimos cuatro grupos de enjambres que compiten por recursos.</p>
+                    <p>Cada celda tendrá distintas puntuaciones de ciertos "recursos" que serán utilizados para definir el estado siguiente de cada celda y de sus vecinos.</p>
+                    <p>Hemos definido tres recursos: Comida, Guerra y Cultura.</p>
+                    <p>Para aspirar a capturar una casilla vacía, cada enjambre deberá reunir un mínimo de alimento. Si dos o más enjambres cumplen ese requisito, el que posea mayor puntuación de guerra ocupará de la celda. Si hay un empate, seguirá vacía.</p>
+                    <p>Para tomar o mantener el control de una celda ocupada, nuevamente solo aquellos enjambres que reúnan el mínimo de alimento serán candidatos. En caso de haber dos o más, aquel grupo con mayor puntuación de cultura tomará control de la casilla. En caso de un empate, pasará a estar vacía.</p>
+                  </div>
+                </div>
+            </div>
+          </div>
 
-    <h1>Aútomatas Celulares</h1>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n "
+                crossorigin="anonymous "></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+                crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
+                crossorigin="anonymous "></script>
 </body>
 
 </html>
