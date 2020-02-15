@@ -12,5 +12,10 @@ function setCellValues() {
 
  update(currentRow, currentColumn, cell);
  resetCellInput();
- updateImage(getGrid());
+ updateTextCell(currentRow, currentColumn, cell);
+}
+
+function setRandom() {
+    randomConfiguration();
+    createCanvas(getGrid());
 }

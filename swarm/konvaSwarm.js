@@ -24,7 +24,7 @@ function getColor(tribe) {
 }
 
 
-function updateImage(grid) {
+function createCanvas(grid) {
     squares.forEach(square => {
         square.destroy();
     });
@@ -88,18 +88,53 @@ function updateImage(grid) {
 
     // add the shape to the layer
     squares.forEach(square => {
-        layer.add(square);
+        squareLayer.add(square);
     });
 
     texts.forEach(text => {
-        layer.add(text);
+        textLayer.add(text);
     });
 
-    // add the layer to the stage
-    stage.add(layer);
+    // add the layers to the stage
+    stage.add(squareLayer);
+    stage.add(textLayer);
 
     // draw the image
-    layer.batchDraw();
+    squareLayer.batchDraw();
+    textLayer.batchDraw();
+}
+
+function updateImage(grid) {
+
+    for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
+        const row = grid[rowIndex];
+        for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
+            const element = grid[rowIndex][columnIndex];
+
+            let color = getColor(element.tribe);
+            let totalColumns = getGrid().length;
+
+            let cell = squares[rowIndex * totalColumns + columnIndex];
+            cell.fill(color);
+        }
+    }
+    
+    squareLayer.batchDraw();
+}
+
+function updateTextCell(row, column, element) {
+    let info = "🍗 " + element.food + "\n" + "🗡️ " + element.war + "\n" + "🗿 " + element.culture;
+    let color = getColor(element.tribe);
+
+    let totalColumns = getGrid().length;
+
+    let cell = squares[row * totalColumns + column];
+    let text = texts[row * totalColumns + column];
+
+    cell.fill(color);
+    text.text(info);
+    squareLayer.draw();
+    textLayer.draw();
 }
 
 var stage = new Konva.Stage({
@@ -108,10 +143,11 @@ var stage = new Konva.Stage({
     height: 850,
 });
 
-var layer = new Konva.Layer();
+var squareLayer = new Konva.Layer();
+var textLayer = new Konva.Layer();
 randomConfiguration();
 
 var grid = getGrid();
 
 
-updateImage(grid);
+createCanvas(grid);
