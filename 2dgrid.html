@@ -52,28 +52,34 @@
                     </div>
 
 
-                    <div class="btn-group-vertical input-group">
+                    <div>
                         <div class="alert alert-secondary" role="alert">
                             <p id=simulacion>Simulación detenida</p>
                         </div>
+                    </div>
+                    <div>
+                        <div class="btn-group input-group">
+                            <button class="btn btn-primary settings-configuration" onclick="next()">Siguiente</button>
+                            <button class="btn btn-primary settings-configuration" onclick="start()">Comenzar</button>
+                            <button class="btn btn-primary" onclick="stop2d()">Detener</button>
+                            <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
+                            <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
+                                Aleatoria</button>
 
-                        <button class="btn btn-primary settings-configuration" onclick="setClear()">Vaciar</button>
-                        <button class="btn btn-primary settings-configuration" onclick="setRandom()">Configuración
-                            Aleatoria</button>
-                        <button class="btn btn-primary settings-configuration" onclick="next()">Siguiente</button>
-                        <button class="btn btn-primary settings-configuration" onclick="start()">Comenzar</button>
-                        <button class="btn btn-primary" onclick="stop2d()">Detener</button>
+                        </div>
                     </div>
 
                     <div class="btn-group-vertical input-group">
                         <p class="p-3 bg-light text-center">Tipo de vecindario</p>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary active">
-                                <input type="radio" class="settings-configuration" name="options" id="option1" onclick="setMoore(true)" checked>
+                                <input type="radio" class="settings-configuration" name="options" id="option1"
+                                    onclick="setMoore(true)" checked>
                                 Moore
                             </label>
                             <label class="btn btn-secondary">
-                                <input type="radio" class="settings-configuration" name="options" onclick="setMoore(false)" id="option2"> Von
+                                <input type="radio" class="settings-configuration" name="options"
+                                    onclick="setMoore(false)" id="option2"> Von
                                 Neumann
                             </label>
                         </div>
@@ -84,39 +90,48 @@
 
                         <div class="form-check">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth0" value="option0" onclick="toggle('births', 0)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth0"
+                                    value="option0" onclick="toggle('births', 0)">
                                 <label class="form-check-label" for="birth0">0</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth1" value="option1" onclick="toggle('births', 1)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth1"
+                                    value="option1" onclick="toggle('births', 1)">
                                 <label class="form-check-label" for="birth1">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth2" value="option2" onclick="toggle('births', 2)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth2"
+                                    value="option2" onclick="toggle('births', 2)">
                                 <label class="form-check-label" for="birth2">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth3" value="option3" onclick="toggle('births', 3)" checked>
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth3"
+                                    value="option3" onclick="toggle('births', 3)" checked>
                                 <label class="form-check-label" for="birth3">3</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth4" value="option4" onclick="toggle('births', 4)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth4"
+                                    value="option4" onclick="toggle('births', 4)">
                                 <label class="form-check-label" for="birth4">4</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth5" value="option5" onclick="toggle('births', 5)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth5" value="option5" onclick="toggle('births', 5)">
                                 <label class="form-check-label" for="birth5">5</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth6" value="option6" onclick="toggle('births', 6)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth6" value="option6" onclick="toggle('births', 6)">
                                 <label class="form-check-label" for="birth6">6</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth7" value="option7" onclick="toggle('births', 7)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth7" value="option7" onclick="toggle('births', 7)">
                                 <label class="form-check-label" for="birth7">7</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth8" value="option8" onclick="toggle('births', 8)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth8" value="option8" onclick="toggle('births', 8)">
                                 <label class="form-check-label" for="birth8">8</label>
                             </div>
                         </div>
@@ -130,39 +145,48 @@
                         </div>
                         <div class="form-check">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="survivor0" value="option0" onclick="toggle('survivors', 0)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="survivor0"
+                                    value="option0" onclick="toggle('survivors', 0)">
                                 <label class="form-check-label" for="survivor0">0</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="survivor1" value="option1" onclick="toggle('survivors', 1)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="survivor1"
+                                    value="option1" onclick="toggle('survivors', 1)">
                                 <label class="form-check-label" for="survivor1">1</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth2" value="survivor2" onclick="toggle('survivors', 2)" checked>
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth2"
+                                    value="survivor2" onclick="toggle('survivors', 2)" checked>
                                 <label class="form-check-label" for="survivor2">2</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth3" value="survivor3" onclick="toggle('survivors', 3)" checked>
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth3"
+                                    value="survivor3" onclick="toggle('survivors', 3)" checked>
                                 <label class="form-check-label" for="survivor3">3</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration" type="checkbox" id="birth4" value="survivor4" onclick="toggle('survivors', 4)">
+                                <input class="form-check-input settings-configuration" type="checkbox" id="birth4"
+                                    value="survivor4" onclick="toggle('survivors', 4)">
                                 <label class="form-check-label" for="survivor4">4</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth5" value="survivor5" onclick="toggle('survivors', 5)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth5" value="survivor5" onclick="toggle('survivors', 5)">
                                 <label class="form-check-label" for="survivor5">5</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth6" value="survivor6" onclick="toggle('survivors', 6)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth6" value="survivor6" onclick="toggle('survivors', 6)">
                                 <label class="form-check-label" for="survivor6">6</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth7" value="survivor7" onclick="toggle('survivors', 7)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth7" value="survivor7" onclick="toggle('survivors', 7)">
                                 <label class="form-check-label" for="survivor7">7</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox" id="birth8" value="survivor8" onclick="toggle('survivors', 8)">
+                                <input class="form-check-input settings-configuration mooreNeighborhood" type="checkbox"
+                                    id="birth8" value="survivor8" onclick="toggle('survivors', 8)">
                                 <label class="form-check-label" for="survivor8">8</label>
                             </div>
                         </div>
