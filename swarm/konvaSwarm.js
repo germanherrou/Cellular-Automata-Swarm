@@ -1,5 +1,5 @@
-var squares = [];
-var texts = [];
+let squares = [];
+let texts = [];
 side = 60;
 
 function getColor(tribe) {
@@ -40,11 +40,11 @@ function createCanvas(grid) {
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
             const element = grid[rowIndex][columnIndex];
 
-            var color = getColor(element.tribe);
+            let color = getColor(element.tribe);
 
-            var info = "🍗 " + element.food + "\n" + "🗡️ " + element.war + "\n" + "🗿 " + element.culture;
+            let info = "🍗 " + element.food + "\n" + "🗡️ " + element.war + "\n" + "🗿 " + element.culture;
 
-            var square = new Konva.Rect({
+            let square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
                 x: columnIndex * side,
                 y: rowIndex * side,
@@ -57,12 +57,12 @@ function createCanvas(grid) {
             });
 
             square.on('click', function (info) {
-                var row = this.attrs.y / side;
-                var column = this.attrs.x / side;
+                let row = this.attrs.y / side;
+                let column = this.attrs.x / side;
                 setInfoChangeMenu(row, column);
             })
 
-            var text = new Konva.Text({
+            let text = new Konva.Text({
                 x: 5 + columnIndex * side,
                 y: 5 + rowIndex * side,
                 text: info,
@@ -73,8 +73,8 @@ function createCanvas(grid) {
             });
 
             text.on('click', function (info) {
-                var row = (this.attrs.y - 5) / side;
-                var column = (this.attrs.x - 5) / side;
+                let row = (this.attrs.y - 5) / side;
+                let column = (this.attrs.x - 5) / side;
                 setInfoChangeMenu(row, column);
             })
 
@@ -137,17 +137,15 @@ function updateTextCell(row, column, element) {
     textLayer.draw();
 }
 
-var stage = new Konva.Stage({
+let stage = new Konva.Stage({
     container: 'container-swarm', // id of container <div>
     width: 850,
     height: 850,
 });
 
-var squareLayer = new Konva.Layer();
-var textLayer = new Konva.Layer();
+let squareLayer = new Konva.Layer();
+let textLayer = new Konva.Layer();
 randomConfiguration();
-
-var grid = getGrid();
 
 
 createCanvas(grid);

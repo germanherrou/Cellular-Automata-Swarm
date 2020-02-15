@@ -1,14 +1,13 @@
-var maxWidth = 780;
-var stage = new Konva.Stage({
+let maxWidth = 780;
+let stage = new Konva.Stage({
     container: 'container2d', // id of container <div>
     width: maxWidth,
     height: 780,
 });
-var layer = new Konva.Layer();
-var grid = getGrid();
-var squares = [];
-var defaultSide = 50;
-var side = defaultSide;
+let layer = new Konva.Layer();
+let squares = [];
+let defaultSide = 50;
+let side = defaultSide;
 
 function updateImage(grid) {
     squares.forEach(square => {
@@ -16,7 +15,7 @@ function updateImage(grid) {
     });
     squares = [];
 
-    var color = 'white';
+    let color = 'white';
 
     for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         const row = grid[rowIndex];
@@ -28,7 +27,7 @@ function updateImage(grid) {
             else
                 color = 'white'
 
-            var square = new Konva.Rect({
+            let square = new Konva.Rect({
                 id: (rowIndex * 10) + columnIndex,
                 x: columnIndex * side,
                 y: offsetHeight + rowIndex * side,
@@ -50,8 +49,8 @@ function updateImage(grid) {
                         value = 1;
                     }
                     layer.draw();
-                    var row = (this.attrs.y - offsetHeight) / side;
-                    var column = this.attrs.x / side;
+                    let row = (this.attrs.y - offsetHeight) / side;
+                    let column = this.attrs.x / side;
                     update(row, column, value);
                 }
             })

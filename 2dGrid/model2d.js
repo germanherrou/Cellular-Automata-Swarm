@@ -1,4 +1,4 @@
-var grid = [
+let grid = [
     [1, 0, 0, 0, 1, 0, 0, 1],
     [0, 1, 1, 0, 0, 1, 0, 0],
     [1, 0, 1, 0, 0, 0, 0, 1],
@@ -8,14 +8,14 @@ var grid = [
     [1, 1, 1, 0, 1, 0, 0, 0],
     [1, 0, 0, 0, 0, 1, 0, 1],
 ];
-var births = [3];
-var survivors = [2, 3];
-var mooreNeighborhood = true; // Moore 8 vecinos, Von Neumann 4 vecinos
+let births = [3];
+let survivors = [2, 3];
+let mooreNeighborhood = true; // Moore 8 vecinos, Von Neumann 4 vecinos
 
 
 function addRows(value) {
     for (let index = 0; index < value; index++) {
-        var newRow = [];
+        let newRow = [];
         grid[0].forEach(element => {
             newRow.push(0);
         });
@@ -32,7 +32,7 @@ function addColumns(value) {
 }
 
 function removeRows(value) {
-    var times = 0;
+    let times = 0;
     while (grid.length > 0 && times < value) {
         grid.pop();
         times++;
@@ -41,7 +41,7 @@ function removeRows(value) {
 
 function removeColumns(value) {
     grid.forEach(row => {
-        var times = 0;
+        let times = 0;
         while (row.length > 0 && times < value) {
             row.pop();
             times++;
@@ -50,7 +50,7 @@ function removeColumns(value) {
 }
 
 function toggle(name, value) {
-    var array = births;
+    let array = births;
     if (name == 'survivors')
         array = survivors;
 
@@ -69,8 +69,8 @@ function toogleNeighborhood() {
 }
 
 function evolve(row, column) {
-    var neighbors = 0;
-    var result = false;
+    let neighbors = 0;
+    let result = false;
 
     if (mooreNeighborhood)
         neighbors = mooreNeighbors(row, column);
@@ -88,11 +88,11 @@ function evolve(row, column) {
 }
 
 function newGrid(func) {
-    var newGrid = [];
+    let newGrid = [];
     grid.forEach(row => {
-        var newRow = [];
+        let newRow = [];
         row.forEach(element => {
-            var number = func();
+            let number = func();
             newRow.push(number);
         });
         newGrid.push(newRow);
@@ -113,7 +113,7 @@ function clear() {
 }
 
 function mooreNeighbors(row, column) {
-    var total = 0;
+    let total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
             if (rowOffset != 0 || columnOffset != 0) {
@@ -139,7 +139,7 @@ function mooreNeighbors(row, column) {
 }
 
 function vonNeumannNeighbors(row, column) {
-    var total = 0;
+    let total = 0;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
             if (rowOffset != columnOffset &&

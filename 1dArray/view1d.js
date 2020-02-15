@@ -1,8 +1,8 @@
-var offsetWidth = 15;
+let offsetWidth = 15;
 
 function fitStageInConainer() {
-    var container = document.getElementById("stage-container");
-    var containerWidth = container.offsetWidth - offsetWidth;
+    let container = document.getElementById("stage-container");
+    let containerWidth = container.offsetWidth - offsetWidth;
     stage.width(containerWidth);
     updateImage(array); 
 }

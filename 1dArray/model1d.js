@@ -1,5 +1,5 @@
-var array = [1, 1, 0, 1, 1, 0, 0, 1, 0, 0];
-var rule = "00110010";
+let array = [1, 1, 0, 1, 1, 0, 0, 1, 0, 0];
+let rule = "00110010";
 
 function getGrid() {
     return array;
@@ -34,9 +34,9 @@ function shrinkArray(newSize) {
 }
 
 function newGrid(func) {
-    var newArray = [];
+    let newArray = [];
     for (let index = 0; index < array.length; index++) {
-        var number = func(index);
+        let number = func(index);
         newArray.push(number);
     }
     array = newArray;
@@ -57,7 +57,7 @@ function clear() {
 
 function transition() {
     newGrid(function (index) {
-        var value = -1;
+        let value = -1;
         if (index == 0)
             value = evolve(array[(array.length - 1)], array[index], array[index + 1]);
         else if (index == (array.length - 1))
@@ -69,9 +69,9 @@ function transition() {
 }
 
 function evolve(previous, current, next) {
-    var configurationBinary = previous * 100 + current * 10 + next;
-    var configurationDecimal = parseInt(configurationBinary, 2);
-    var ruleValueChar = rule.charAt(7 - configurationDecimal);
-    var ruleValue = parseInt(ruleValueChar, 10);
+    let configurationBinary = previous * 100 + current * 10 + next;
+    let configurationDecimal = parseInt(configurationBinary, 2);
+    let ruleValueChar = rule.charAt(7 - configurationDecimal);
+    let ruleValue = parseInt(ruleValueChar, 10);
     return ruleValue;
 }

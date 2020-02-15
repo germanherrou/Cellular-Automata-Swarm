@@ -1,14 +1,13 @@
-var array = getGrid();
-var defaultSide = 50;
-var side = defaultSide;
-var squares = [];
-var stage = new Konva.Stage({
+let defaultSide = 50;
+let side = defaultSide;
+let squares = [];
+let stage = new Konva.Stage({
     container: 'container1d', // id of container <div>
     width: 760,
     height: 100,
 
 });
-var layer = new Konva.Layer();
+let layer = new Konva.Layer();
 
 function updateImage(array) {
     squares.forEach(square => {
@@ -23,7 +22,7 @@ function updateImage(array) {
         side = defaultSide;
     }
 
-    var color = 'white';
+    let color = 'white';
     for (let index = 0; index < array.length; index++) {
         if (array[index])
             color = 'gray'
@@ -31,7 +30,7 @@ function updateImage(array) {
             color = 'white'
 
 
-        var square = new Konva.Rect({
+        let square = new Konva.Rect({
             id: index,
             index: index,
             x: index * side,

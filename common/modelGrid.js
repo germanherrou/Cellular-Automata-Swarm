@@ -7,14 +7,14 @@ function update(row, column, value) {
 }
 
 function transition() {
-    var newGrid = [];
-    var value;
+    let newGrid = [];
+    let value;
 
     for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         const row = grid[rowIndex];
-        var newRow = [];
+        let newRow = [];
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
-            var value = evolve(rowIndex, columnIndex);
+            let value = evolve(rowIndex, columnIndex);
             newRow.push(value);
         }
         newGrid.push(newRow);

@@ -1,9 +1,9 @@
-var currentRow = -1;
-var currentColumn = -1;
+let currentRow = -1;
+let currentColumn = -1;
 function setInfoChangeMenu(row, column) {
     currentRow = row;
     currentColumn = column;
-    var cell = getGrid()[row][column];
+    let cell = getGrid()[row][column];
     document.getElementById("current-cell").innerHTML =
      "(" + row +" " + column + ")";
     document.getElementById("tribe-input").value = cell.tribe;

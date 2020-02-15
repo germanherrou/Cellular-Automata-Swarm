@@ -1,17 +1,17 @@
-var size = 14;
-var grid = [];
-var foodNeeded = 3;
+let size = 14;
+let grid = [];
+let foodNeeded = 3;
 
 function randomConfiguration() {
-    var newGrid = [];
+    let newGrid = [];
     for (let index = 0; index < size; index++) {
-        var row = [];
+        let row = [];
         for (let index = 0; index < size; index++) {
-            var tribe = Math.floor(Math.random() * 5);
-            var food = Math.floor(Math.random() * 4);
-            var war = Math.floor(Math.random() * 4);
-            var culture = Math.floor(Math.random() * 4);
-            var cell = new SwarmCell(tribe, food, war, culture);
+            let tribe = Math.floor(Math.random() * 5);
+            let food = Math.floor(Math.random() * 4);
+            let war = Math.floor(Math.random() * 4);
+            let culture = Math.floor(Math.random() * 4);
+            let cell = new SwarmCell(tribe, food, war, culture);
             row.push(cell);
         }
         newGrid.push(row);
@@ -20,9 +20,9 @@ function randomConfiguration() {
 }
 
 function neighbors(row, column) {
-    var neighbors = [];
-    var newRow;
-    var newColumn;
+    let neighbors = [];
+    let newRow;
+    let newColumn;
     for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
         for (let columnOffset = -1; columnOffset <= 1; columnOffset++) {
             if (rowOffset != 0 || columnOffset != 0) {
@@ -50,9 +50,9 @@ function neighbors(row, column) {
 }
 
 function evolve(row, column) {
-    var cell = getGrid()[row][column];
-    var newCell = new SwarmCell(cell.tribe, cell.food, cell.war, cell.culture)
-    var neigh = neighbors(row, column);
+    let cell = getGrid()[row][column];
+    let newCell = new SwarmCell(cell.tribe, cell.food, cell.war, cell.culture)
+    let neigh = neighbors(row, column);
     if (isAlive(cell))
         newCell.tribe = survivors(cell, neigh);
     else
@@ -80,10 +80,10 @@ function births(cell, neighbors) {
 function mostResources(cell, neighbors, funcResource) {
     //neighborsPerTribe[n] cantidad miembros tribu n + 1
     //tribus 1 azul 2 rojo 3 amarillo 4 verde
-    var foodPerTribe = [0, 0, 0, 0];
-    var resourcesPerTribe = [0, 0, 0, 0];
-    var newTribe = 0;
-    var mostResources = 0;
+    let foodPerTribe = [0, 0, 0, 0];
+    let resourcesPerTribe = [0, 0, 0, 0];
+    let newTribe = 0;
+    let mostResources = 0;
 
     if (cell.tribe > 0) {
         foodPerTribe[cell.tribe - 1] += cell.food;

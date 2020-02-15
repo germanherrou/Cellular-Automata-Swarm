@@ -7,7 +7,7 @@ function setMoore(state) {
 }
 
 function changeRows(total) {
-    var length = getGrid().length;
+    let length = getGrid().length;
     if (length < total)
         addRows(total - length);
     else
@@ -16,7 +16,7 @@ function changeRows(total) {
 }
 
 function changeColumns(total) {
-    var length = getGrid()[0].length;
+    let length = getGrid()[0].length;
     if (length < total)
         addColumns(total - length);
     else

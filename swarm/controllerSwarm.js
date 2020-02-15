@@ -1,10 +1,10 @@
 function setCellValues() {
- var tribe = document.getElementById("tribe-input").value;
- var food = document.getElementById("food-input").value;
- var war = document.getElementById("war-input").value;
- var culture = document.getElementById("culture-input").value;
+ let tribe = document.getElementById("tribe-input").value;
+ let food = document.getElementById("food-input").value;
+ let war = document.getElementById("war-input").value;
+ let culture = document.getElementById("culture-input").value;
 
- var cell = getGrid()[currentRow][currentColumn];
+ let cell = getGrid()[currentRow][currentColumn];
  cell.tribe = Number(tribe);
  cell.food = Number(food);
  cell.war = Number(war);

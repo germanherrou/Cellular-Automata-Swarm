@@ -1,8 +1,8 @@
-var offsetWidth = 20;
-var offsetHeight = 20;
+let offsetWidth = 20;
+let offsetHeight = 20;
 
 function setNeighborhoodButtons() {
-    var elements = document.getElementsByClassName("mooreNeighborhood");
+    let elements = document.getElementsByClassName("mooreNeighborhood");
     for (let element of elements) {
         if (isMooreNeighborhood()) {
             element.disabled = false;
@@ -20,8 +20,8 @@ function stop2d() {
 }
 
 function fitStageInConainer() {
-    var container = document.getElementById("stage-container");
-    var containerWidth = container.offsetWidth - offsetWidth;
+    let container = document.getElementById("stage-container");
+    let containerWidth = container.offsetWidth - offsetWidth;
     if (containerWidth < maxWidth) {
         stage.width(containerWidth);
     }
