@@ -19,6 +19,14 @@ function randomConfiguration() {
     grid = newGrid;
 }
 
+function clear() {
+    grid.forEach(row => {
+        row.forEach(element => {
+            element.tribe = 0;
+        });
+    });
+}
+
 function neighbors(row, column) {
     let neighbors = [];
     let newRow;
